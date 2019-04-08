@@ -21,7 +21,7 @@ class UpdateForm extends Component
             Money_raised: this.money_raised.value,
             Location: this.location.value
         }
-        var url = `http://localhost:4000/startups/${this.props.id}`;
+        var url = `https://backendvaradk2.herokuapp.com/startups/${this.props.id}`;
         // console.log(url);
         Axios.put(url, update)
         .then((res) => {

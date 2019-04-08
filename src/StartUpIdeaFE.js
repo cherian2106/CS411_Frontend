@@ -18,7 +18,7 @@ class StartUpIdeaFE extends Component
     }
 
     handleChange = () => {
-        var url = `http://localhost:4000/startups?name="${this.search.value}"`;
+        var url = `https://backendvaradk2.herokuapp.com/startups?name="${this.search.value}"`;
         console.log(url);
         this.setState({SearchResults: [{id: 1, title: "Hi"}]});
         axios.get(url)

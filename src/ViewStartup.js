@@ -17,7 +17,7 @@ class ViewStartup extends Component
 
   handleDelete = () => {
     // console.log(this.state.id);
-    var url = `http://localhost:4000/startups/${this.state.id}`
+    var url = `https://backendvaradk2.herokuapp.com/startups/${this.state.id}`
     Axios.delete(url)
     .then((res) => {
       console.log(res);

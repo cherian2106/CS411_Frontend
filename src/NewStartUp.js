@@ -20,7 +20,7 @@ class NewStartUp extends Component
             Money_raised: this.money_raised.value,
             Location: this.location.value
         }
-        var url = `http://localhost:4000/startups`;
+        var url = `https://backendvaradk2.herokuapp.com/startups`;
         // console.log(url);
         Axios.post(url, update)
         .then((res) => {
