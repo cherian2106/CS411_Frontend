@@ -1,15 +1,15 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import StartUpIdeaFE from './StartUpIdeaFE';
+import LoginPage from './LoginPage';
 import ViewStartup from './ViewStartup';
 import * as serviceWorker from './serviceWorker';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 
-ReactDOM.render(<StartUpIdeaFE />, document.getElementById('root'));
+ReactDOM.render(<LoginPage />, document.getElementById('root'));
 ReactDOM.render(<Router>
     <div>
-      <Route exact path={process.env.PUBLIC_URL+"/"} component={StartUpIdeaFE} />
+      <Route exact path={process.env.PUBLIC_URL+"/"} component={LoginPage} />
       <Route exact path={process.env.PUBLIC_URL+"/startups/:id"} component={ViewStartup} />
     </div>
 </Router>, document.getElementById('root'));
