@@ -1,0 +1,21 @@
+.LoginPage {
+    /* display: inline */
+}
+.Login{
+    /* display: inline; */
+    /* text-align: right */
+    float: right;
+}
+
+.SignUp{
+    /* float: right; */
+    /* display: inline */
+}
+
+.image{
+    display: inline;
+    height: 30%;
+    width: 30%;
+    /* text-align: center */
+    /* float: right; */
+}

@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import Sugg from './Sugg';
 import NewStartUp from './NewStartUp';
+import { Link } from 'react-router-dom';
+import './StartUpIdeaFE.css'
 // import { Link } from 'react-router-dom';
 
 class StartUpIdeaFE extends Component
@@ -43,8 +45,9 @@ class StartUpIdeaFE extends Component
                 ref={input => this.search = input}
                 />
                 <button onClick={this.handleChange}>Go</button>
+                <Link to={process.env.PUBLIC_URL+'/create'}><button className="ui button">Create StartUp</button></Link>
                 <div><Sugg value = {this.state.SearchResults}/></div>
-                <div><NewStartUp/> </div>
+                {/* <div><NewStartUp/> </div> */}
         </div>);
     }
 }

@@ -1,0 +1,6 @@
+.innerContain {
+    display: flex;
+    float: right
+    /* text-align: right; */
+    /* background-color: blue;  */
+}

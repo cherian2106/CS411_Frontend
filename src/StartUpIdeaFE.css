@@ -10,6 +10,9 @@
     margin: auto;
   }
   
+  .ui {
+    text-align: right;
+  }
   /* .Container{
     text-align: center;
     background-color: LightSteelBlue;
