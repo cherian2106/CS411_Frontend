@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-import Sugg from './Sugg';
-import NewStartUp from './NewStartUp';
+import Sugg from '../Sugg/Sugg';
+import NewStartUp from '../../NewStartUp';
 import { Link } from 'react-router-dom';
-import './StartUpIdeaFE.css'
+import './StartUpIdeaFE.module.scss'
 // import { Link } from 'react-router-dom';
 
 class StartUpIdeaFE extends Component

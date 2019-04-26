@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import './Sugg.css';
+import './Sugg.module.scss';
 // import ViewStartup from './ViewStartup';
 import { Link } from 'react-router-dom';
 

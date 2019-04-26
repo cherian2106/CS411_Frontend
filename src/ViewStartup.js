@@ -38,30 +38,27 @@ class ViewStartup extends Component
       <div className="CardContainer">
             <Link to={process.env.PUBLIC_URL+'/search'}><button className="ui button">Back To Search</button></Link>
             <div className="ui centered card">
-                <Card>
-                <Image src =  ''/>
-                <Card.Content>
-                    <Card.Header>StartUp name: {this.state.elems.Name} </Card.Header>
-                    <Card.Meta>
-                        {/* <span className='date'>Some Other field : Some other field</span> */}
-                    </Card.Meta>
-                    <Card.Description>{/*Description of Startup*/}</Card.Description>
-                </Card.Content>
-                <Card.Content extra>
-                    <p>
-                    <Icon name='user' />
-                      Category: {this.state.elems.Category} <br></br>
-                      Launch date: {this.state.elems.Launch_date} <br></br>
-                      Location: {this.state.elems.Location} <br></br>
-                      Money raised: {this.state.elems.Money_raised} <br></br>
-                    </p>
-                </Card.Content>
+                <p> startUp Name: {this.state.elems.Name}</p>
+                {/* <Card>
+                  <Image src =  ''/>
+                  <Card.Content>
+                      <Card.Header>StartUp name: {this.state.elems.Name} </Card.Header>
+                  </Card.Content>
+                  <Card.Content extra>
+                      <p>
+                      <Icon name='user' />
+                        Category: {this.state.elems.Category} <br></br>
+                        Launch date: {this.state.elems.Launch_date} <br></br>
+                        Location: {this.state.elems.Location} <br></br>
+                        Money raised: {this.state.elems.Money_raised} <br></br>
+                      </p>
+                  </Card.Content>
                 <button onClick = {this.handleDelete} className="ui button">Delete</button>
-                </Card>
-                </div>
-                <UpdateForm id = {this.state.elems.StartupID}></UpdateForm>
+                </Card> */}
             </div>
-        )
+            <UpdateForm id = {this.state.elems.StartupID}></UpdateForm>
+      </div>
+    )
   }
 }
 export default ViewStartup
