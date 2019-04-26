@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import './Sugg.module.scss';
+import sugg from './Sugg.module.scss';
 // import ViewStartup from './ViewStartup';
 import { Link } from 'react-router-dom';
 
@@ -18,15 +18,15 @@ class Sugg extends Component
         state: {
             elems: r
           }
-      }}>
-      <div className = "list">
-      <li className="elem" key={r.StartupID}>
-        {r.Name}
-      </li>
-      </div>
+        }}>
+        <div className = {sugg.list}>
+          <li className={sugg.elem} key={r.StartupID}>
+            {r.Name}
+          </li>
+        </div>
       </Link>
     ))
-    return <div className="cont"><br></br><ul>{options}</ul></div>
+    return <div className={sugg.cont}><br></br><ul>{options}</ul></div>
   }
 }
 

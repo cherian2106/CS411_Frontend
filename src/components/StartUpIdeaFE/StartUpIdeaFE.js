@@ -3,7 +3,7 @@ import axios from 'axios';
 import Sugg from '../Sugg/Sugg';
 import NewStartUp from '../../NewStartUp';
 import { Link } from 'react-router-dom';
-import './StartUpIdeaFE.module.scss'
+import startupidea from './StartUpIdeaFE.module.scss'
 // import { Link } from 'react-router-dom';
 
 class StartUpIdeaFE extends Component
@@ -36,16 +36,18 @@ class StartUpIdeaFE extends Component
     render()
     {return(
         <div>
-            <label className = "StartupSearch">Startup Search</label>
+            <label className = {startupidea.search}>Startup Search</label>
                 <input
-                className = "StartupSearchForm"
+                className = {startupidea.searchform}
                 placeholder="Search for Startups here..."
                 type="text"
                 name="Search Bar"
                 ref={input => this.search = input}
                 />
                 <button onClick={this.handleChange}>Go</button>
-                <Link to={process.env.PUBLIC_URL+'/create'}><button className="ui button">Create StartUp</button></Link>
+                <Link to={process.env.PUBLIC_URL+'/create'}>
+                    <button className={startupidea.ui}>Create StartUp</button>
+                </Link>
                 <div><Sugg value = {this.state.SearchResults}/></div>
                 {/* <div><NewStartUp/> </div> */}
         </div>);

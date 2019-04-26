@@ -4,7 +4,7 @@ import RaisedButton from 'material-ui/RaisedButton';
 import TextField from 'material-ui/TextField';
 import React, { Component } from 'react';
 import firebase from 'firebase';
-import './Login.module.scss'
+import login from './Login.module.scss'
 
 
 class Login extends Component {
@@ -34,28 +34,28 @@ constructor(props){
 
 render() {
     return (
-      <div className = 'innerContain'>
+      <div className = {login.innerContain}>
         <MuiThemeProvider>
           <div>
           {/* <AppBar
              title="Login"
            /> */}
            <TextField
-             className = "Username"
+             className = {login.user}
              hintText="Enter your Username"
              floatingLabelText="Username"
              onChange = {(event,newValue) => this.setState({username:newValue})}
              />
            <br/>
              <TextField
-               className = "Password"
+               className = {login.password}
                type="password"
                hintText="Enter your Password"
                floatingLabelText="Password"
                onChange = {(event,newValue) => this.setState({password:newValue})}
                />
              <br/>
-             <RaisedButton onClick = {this.LoginClick} className = "Submit" label="Login" primary={true} style={style}/>
+             <RaisedButton onClick = {this.LoginClick} className = {login.submit} label="Login" primary={true} style={style}/>
          </div>
          </MuiThemeProvider>
       </div>
