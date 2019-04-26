@@ -43,7 +43,6 @@ render() {
              floatingLabelText="Username"
              onChange = {(event,newValue) => this.setState({username:newValue})}
              />
-             <br/>
              <TextField
                className = {login.password}
                type="password"

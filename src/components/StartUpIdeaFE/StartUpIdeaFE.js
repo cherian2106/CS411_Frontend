@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import Sugg from '../Sugg/Sugg';
-import { Button } from 'semantic-ui-react';
+import { Button, Input } from 'semantic-ui-react';
 // import NewStartUp from '../../NewStartUp';
 import { Link } from 'react-router-dom';
 import startupidea from './StartUpIdeaFE.module.scss'
@@ -94,16 +94,15 @@ class StartUpIdeaFE extends Component {
 constructor() 
     {
         super();
-    
         this.state ={
-            isLoading: false, results: [{title:""}], value: '' 
+            isLoading: false, results: [], value: '', ans: {}
         };
 
         // this.handleChange = this.handleChange.bind(this);
     }
-  resetComponent = () => this.setState({ isLoading: false, results: [], value: '' })
+  resetComponent = () => this.setState({ isLoading: false, results: [], value: '', ans:{} })
 
-  handleResultSelect = (e, { result }) => this.setState({ value: result.Name })
+  handleResultSelect = (e, { result }) => this.setState({ value: result })
 
   handleSearchChange = (e, {value}) => {
     this.setState({ isLoading: true, value })
@@ -111,26 +110,22 @@ constructor()
     console.log(url);
     axios.get(url)
         .then((res) => {
-            this.setState({results: {title: res.data.map(a=>a.Name)}});
-            console.log(res.data);
+            this.setState({results: res.data});
         })
-
     setTimeout(() => {
-    //   if (this.state.value.length < 1) return this.resetComponent()
-
-      const re = new RegExp(_.escapeRegExp(this.state.value), 'i')
-      const isMatch = result => re.test(result)
-
       this.setState({
         isLoading: false,
-        results: _.filter(this.state.results, isMatch),
       })
     }, 300)
   }
 
   render() {
     // const { isLoading, value, results } = this.state
-
+    const resRender = ({ Name }) => (
+      <span key="name">
+        {Name}
+      </span>
+    );
     return (
       <Grid>
         <Grid.Column width={6}>
@@ -140,16 +135,9 @@ constructor()
             onSearchChange={_.debounce(this.handleSearchChange, 500, { leading: true })}
             results={this.state.results}
             value={this.state.value}
-            {...this.props}
+            resultRenderer={resRender}
+            // {...this.props}
           />
-        </Grid.Column>
-        <Grid.Column width={10}>
-          <Segment>
-            <Header>State</Header>
-            <pre style={{ overflowX: 'auto' }}>{JSON.stringify(this.state, null, 2)}</pre>
-            <Header>Options</Header>
-            <pre style={{ overflowX: 'auto' }}>{JSON.stringify(this.state.results, null, 2)}</pre>
-          </Segment>
         </Grid.Column>
       </Grid>
     )
