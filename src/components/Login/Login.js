@@ -1,5 +1,5 @@
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
-import AppBar from 'material-ui/AppBar';
+// import AppBar from 'material-ui/AppBar';
 import RaisedButton from 'material-ui/RaisedButton';
 import TextField from 'material-ui/TextField';
 import React, { Component } from 'react';
@@ -37,16 +37,13 @@ render() {
       <div className = {login.innerContain}>
         <MuiThemeProvider>
           <div>
-          {/* <AppBar
-             title="Login"
-           /> */}
-           <TextField
+            <TextField
              className = {login.user}
              hintText="Enter your Username"
              floatingLabelText="Username"
              onChange = {(event,newValue) => this.setState({username:newValue})}
              />
-           <br/>
+             <br/>
              <TextField
                className = {login.password}
                type="password"
@@ -54,59 +51,12 @@ render() {
                floatingLabelText="Password"
                onChange = {(event,newValue) => this.setState({password:newValue})}
                />
-             <br/>
-             <RaisedButton onClick = {this.LoginClick} className = {login.submit} label="Login" primary={true} style={style}/>
+               <br/>
+             <RaisedButton onClick = {this.LoginClick} className = {login.submit} label="Login" primary={true}/>
          </div>
          </MuiThemeProvider>
       </div>
     );
   }
 }
-const style = {
- margin: 15,
-};
 export default Login;
-
-
-// import React, { Component } from 'react';
-// import { Form,Button, FormGroup, FormControl, FormLabel } from "react-bootstrap";
-// import './LoginPage.css'
-// import 'react-bootstrap/dist/react-bootstrap';
-
-// class Login extends Component {
-//     render() {
-//       return (
-        
-//       )}
-// }
-
-// export default Login;
-
-
-{/* <div className='loginContainer'>
-        {/* <label>UserName</label>
-        <input
-        className = "UserName"
-        placeholder="Enter your Username"
-        type="text"
-        ref={input => this.UserName = input}
-        />
-        <label>Password</label>
-        <input
-        className = "Password"
-        placeholder="Enter your Password"
-        type="text"
-        ref={input => this.Password = input}
-        /> 
-        <Form className='loginContainer'>
-          <Form.Group controlId="formGroupEmail">
-            <Form.Label>Email address</Form.Label>
-            <Form.Control type="email" placeholder="Enter email" />
-          </Form.Group>
-         <Form.Group controlId="formGroupPassword">
-            <Form.Label>Password</Form.Label>
-            <Form.Control type="password" placeholder="Password" />
-          </Form.Group>
-        </Form>;
-        </div> 
-      */}

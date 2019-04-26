@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import Sugg from '../Sugg/Sugg';
-import NewStartUp from '../../NewStartUp';
+import { Button } from 'semantic-ui-react';
+// import NewStartUp from '../../NewStartUp';
 import { Link } from 'react-router-dom';
 import startupidea from './StartUpIdeaFE.module.scss'
 import { Dropdown } from "semantic-ui-react";
