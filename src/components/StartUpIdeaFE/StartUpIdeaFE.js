@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import Sugg from '../Sugg/Sugg';
-import { Button } from 'semantic-ui-react';
+import { Button, Input } from 'semantic-ui-react';
 // import NewStartUp from '../../NewStartUp';
 import { Link } from 'react-router-dom';
 import startupidea from './StartUpIdeaFE.module.scss'
@@ -94,12 +94,12 @@ class StartUpIdeaFE extends Component {
 constructor() 
     {
         super();
-    
         this.state ={
             isLoading: false, results: [{title:""}], value: '' 
         };
 
         // this.handleChange = this.handleChange.bind(this);
+        this.handleRef = this.handleRef.bind(this);
     }
   resetComponent = () => this.setState({ isLoading: false, results: [], value: '' })
 
