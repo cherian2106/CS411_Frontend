@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import Sugg from '../Sugg/Sugg';
-import NewStartUp from '../../NewStartUp';
+import { Button } from 'semantic-ui-react';
+// import NewStartUp from '../../NewStartUp';
 import { Link } from 'react-router-dom';
 import startupidea from './StartUpIdeaFE.module.scss'
 // import { Link } from 'react-router-dom';
@@ -36,19 +37,21 @@ class StartUpIdeaFE extends Component
     render()
     {return(
         <div>
-            <label className = {startupidea.search}>Startup Search</label>
-                <input
-                className = {startupidea.searchform}
-                placeholder="Search for Startups here..."
-                type="text"
-                name="Search Bar"
-                ref={input => this.search = input}
-                />
-                <button onClick={this.handleChange}>Go</button>
-                <Link to={process.env.PUBLIC_URL+'/create'}>
-                    <button className={startupidea.ui}>Create StartUp</button>
-                </Link>
-                <div><Sugg value = {this.state.SearchResults}/></div>
+            {/* <label className = {startupidea.search}>Startup Search</label> */}
+            <input
+            className = {startupidea.searchform}
+            placeholder="Search for Startups here..."
+            type="text"
+            name="Search Bar"
+            ref={input => this.search = input}
+            />
+            <Button onClick={this.handleChange}> Go </Button>
+            <Link to={process.env.PUBLIC_URL+'/create'}>
+                <Button className={startupidea.ui}> Create StartUp </Button>
+            </Link>
+            <div>
+                <Sugg value = {this.state.SearchResults}/>
+            </div>
                 {/* <div><NewStartUp/> </div> */}
         </div>);
     }
