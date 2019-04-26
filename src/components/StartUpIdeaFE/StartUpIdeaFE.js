@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import Sugg from '../Sugg/Sugg';
-import { Button } from 'semantic-ui-react';
+import { Button, Input } from 'semantic-ui-react';
 // import NewStartUp from '../../NewStartUp';
 import { Link } from 'react-router-dom';
 import startupidea from './StartUpIdeaFE.module.scss'
@@ -12,16 +12,17 @@ class StartUpIdeaFE extends Component
     constructor() 
     {
         super();
-    
         this.state ={
           SearchResults: []
         };
 
         // this.handleChange = this.handleChange.bind(this);
+        this.handleRef = this.handleRef.bind(this);
     }
+    handleRef = component => (this.inputRef = component);
 
     handleChange = () => {
-        var url = `https://backendvaradk2.herokuapp.com/startups?name="${this.search.value}"`;
+        var url = `https://backendvaradk2.herokuapp.com/startups?name="${this.inputRef.focus()}"`;
         console.log(url);
         this.setState({SearchResults: [{id: 1, title: "Hi"}]});
         axios.get(url)
@@ -38,20 +39,28 @@ class StartUpIdeaFE extends Component
     {return(
         <div>
             {/* <label className = {startupidea.search}>Startup Search</label> */}
-            <input
+            {/* <input
             className = {startupidea.searchform}
             placeholder="Search for Startups here..."
             type="text"
             name="Search Bar"
             ref={input => this.search = input}
+            /> */}
+            <Input
+                name = "search"
+                placeholder="Search for Startups here..."
+                type = "text"
+                name="Search Bar"
+                // ref = {input => this.search = input}
+                ref={this.handleRef}
             />
             <Button onClick={this.handleChange}> Go </Button>
             <Link to={process.env.PUBLIC_URL+'/create'}>
                 <Button className={startupidea.ui}> Create StartUp </Button>
             </Link>
-            <div>
+            {/* <div>
                 <Sugg value = {this.state.SearchResults}/>
-            </div>
+            </div> */}
                 {/* <div><NewStartUp/> </div> */}
         </div>);
     }
