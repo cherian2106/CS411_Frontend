@@ -100,9 +100,9 @@ constructor()
 
         // this.handleChange = this.handleChange.bind(this);
     }
-  resetComponent = () => this.setState({ isLoading: false, results: [], value: '', ans:{} })
+  resetComponent = () => this.setState({ isLoading: false, results: [], value: '' })
 
-  handleResultSelect = (e, { result }) => this.setState({ value: result })
+  handleResultSelect = (e, { result }) => this.setState({ value: result.Name })
 
   handleSearchChange = (e, {value}) => {
     this.setState({ isLoading: true, value })
