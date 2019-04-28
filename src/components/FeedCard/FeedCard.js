@@ -3,7 +3,7 @@ import { Card } from 'semantic-ui-react';
 import {Image} from 'semantic-ui-react';
 import {Icon} from 'semantic-ui-react';
 import { Link } from 'react-router-dom';
-import UpdateForm from './UpdateForm';
+// import UpdateForm from '../../UpdateForm';
 import Axios from 'axios';
 // import 'semantic-ui-react';
 // import 'semantic-ui-css/semantic.min';
@@ -24,7 +24,7 @@ class Feed extends Component
   render() {
     return(
       <div className="CardContainer">
-            <Link to={process.env.PUBLIC_URL+'/search'}><button className="ui button">Back To Search</button></Link>
+            {/* <Link to={process.env.PUBLIC_URL+'/search'}><button className="ui button">Back To Search</button></Link> */}
             <div className="ui centered card">
                 <p> startUp Name: {this.state.elems.Name}</p>
                 <Card>

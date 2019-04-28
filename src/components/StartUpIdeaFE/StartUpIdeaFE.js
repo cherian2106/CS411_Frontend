@@ -1,18 +1,24 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import _ from 'lodash'
-import { Search, Grid, Header, Segment } from 'semantic-ui-react'
-import Feed from '../../Feed';
+import { Search, Grid, Button, Menu, Header, Segment } from 'semantic-ui-react'
+import FeedCard from '../FeedCard/FeedCard';
 import firebase from 'firebase';
+import startupidea from './StartUpIdeaFE.module.scss'
 
 class StartUpIdeaFE extends Component {
-constructor() 
+constructor()
   {
         super();
         this.state ={
-            isLoading: false, results: [], value: '', ans: {}
+            isLoading: false,
+            results: [],
+            value: '',
+            // ans: {},
+            curr_iter: 0
         };
         this.Logout = this.Logout.bind(this);
+
   }
 
  Logout = () => {
@@ -29,10 +35,14 @@ constructor()
     const res = firebase.auth().signOut();
     res.then(window.location.href = process.env.PUBLIC_URL+"/");
  }
-    
-  resetComponent = () => this.setState({ isLoading: false, results: [], value: '' })
 
-  handleResultSelect = (e, { result }) => this.setState({ value: result.Name })
+//   resetComponent = () => this.setState({ isLoading: false, results: [], value: '' })
+
+  handleResultSelect = (e, { result }) => {
+      console.log(result);
+      window.location.href = process.env.PUBLIC_URL+"/startups/" + result.StartupID;
+      this.setState({ value: result.Name });
+  }
 
   handleSearchChange = (e, {value}) => {
     this.setState({ isLoading: true, value })
@@ -56,31 +66,53 @@ constructor()
         {Name}
       </span>
     );
-    const Test = ({results}) => (
-      <>
+    const Feed = ({results}) => {
+        console.log(results);
+      return (<ul className = {startupidea.feedul}>
         {results.map(result => (
-            <Feed elems = {result}/>
+            <li className = {startupidea.feedli} key = {result.StartupID}>
+                <FeedCard elems = {result}/>
+            </li>
         ))}
-      </>
-    ); 
+      </ul>
+      )};
     return (
-      <div>
-        <button onClick = {this.Logout} label="Login">Logout</button>
-        <Grid>
-          <Grid.Column width={20}>
-            <Search
-              loading={this.state.isLoading}
-              onResultSelect={this.handleResultSelect}
-              onSearchChange={_.debounce(this.handleSearchChange, 500, { leading: true })}
-              results={this.state.results}
-              value={this.state.value}
-              resultRenderer={resRender}
-              // {...this.props}
-            />
-          </Grid.Column>
-        </Grid>
-        <div><Test results = {this.state.results} /></div>
-      </div>
+        <div>
+            <Menu inverted className={startupidea.navbar}>
+                <Menu.Menu position='right'>
+                    <Menu.Item
+                        name='editorials'
+                        color='red'
+                        onClick = {this.Logout}
+                        // active={activeItem === 'editorials'}
+                        // onClick={this.handleItemClick}
+                    > Logout
+                    </Menu.Item>
+                </Menu.Menu>
+            </Menu>
+        {/* <button onClick = {this.Logout} label="Login">Logout</button> */}
+            <Grid>
+                <Grid.Column width={15}>
+                    <Search
+                    //   className = {startupidea.searchbar}
+                    //   style = {{width: "300px"}}
+                        input={{ fluid: true }}
+                        // input = {{"font-size": "20px"}}
+                        size='large'
+                        // style={{ width: "500px" }}
+                        loading={this.state.isLoading}
+                        onResultSelect={this.handleResultSelect}
+                        onSearchChange={_.debounce(this.handleSearchChange, 500, { leading: true })}
+                        results={this.state.results}
+                        value={this.state.value}
+                        resultRenderer={resRender}
+                    // {...this.props}
+                    />
+                </Grid.Column>
+                <Button className = {startupidea.gobtn}> Go </Button>
+            </Grid>
+            <div><Feed results = {this.state.results.slice(this.state.curr_iter, 10)} /></div>
+        </div>
     )
   }
 }
