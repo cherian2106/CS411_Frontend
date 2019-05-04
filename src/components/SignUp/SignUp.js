@@ -3,34 +3,28 @@ import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import RaisedButton from 'material-ui/RaisedButton';
 import TextField from 'material-ui/TextField';
 import React, { Component } from 'react';
-import firebase from 'firebase';
 import signup from './SignUp.module.scss'
+import Auth from '../../config.js'
 class SignUp extends Component {
 
     constructor(props){
         super(props);
         this.state = {
-            name: '',
-            username:'',
+            username: '',
+            email:'',
             password:''
         }
     }
 // Initialize Firebase
 
 SignUpClick = () =>{
-    let config = {
-        apiKey: "AIzaSyBaoiWVV8vuD8uiRI3AiFEvC3xCs8m2MTY",
-        authDomain: "cs411-c57f9.firebaseapp.com",
-        databaseURL: "https://cs411-c57f9.firebaseio.com",
-        projectId: "cs411-c57f9",
-        storageBucket: "cs411-c57f9.appspot.com",
-        messagingSenderId: "259780274004"
-      };
-      firebase.initializeApp(config);
-
-    const auth = firebase.auth()
-    const res = auth.createUserWithEmailAndPassword(this.state.username, this.state.password)
-    res.catch(e => console.log(e.message))
+    // console.log(this.state.email)
+    // console.log(this.state.password)
+    Auth.createUserWithEmailAndPassword(this.state.email, this.state.password)
+    .then(function(result){ 
+          console.log(result);
+    });
+    // res.catch(e => console.log(e.message))
 }
 
     render() {
@@ -39,17 +33,21 @@ SignUpClick = () =>{
         <MuiThemeProvider>
           <div>
             <TextField
-             className = {signup.user}
-             hintText="Enter your Name"
-             floatingLabelText="Name"
-             onChange = {(event,newValue) => this.setState({name:newValue})}
+             className = {signup.username}
+             hintText="Enter your Username"
+             floatingLabelText="Username"
+            //  value = {this.state.username}
+            //  ref={input => this.username = input}
+             onChange = {(event,newValue) => this.setState({username:newValue})}
              />
            <br/>
            <TextField
-               className = {signup.username}
-               hintText="Enter your Username"
-               floatingLabelText="Username"
-               onChange = {(event,newValue) => this.setState({username:newValue})}
+               className = {signup.user}
+               hintText="Enter your email"
+               floatingLabelText="Email"
+              //  value = {this.state.email}
+              //  ref={input => this.email = input}
+               onChange = {(event,newValue) => this.setState({email:newValue})}
                />
             <br/>
              <TextField
@@ -57,10 +55,12 @@ SignUpClick = () =>{
                type="password"
                hintText="Enter your Password"
                floatingLabelText="Password"
+              //  value = {this.state.password}
+              //  ref={input => this.password = input}
                onChange = {(event,newValue) => this.setState({password:newValue})}
                />
              <br/>
-             <RaisedButton onClick = {this.LoginClick} className = {signup.submit} label="Sign up" primary={true}/>
+             <RaisedButton onClick = {this.SignUpClick} className = {signup.submit} label="Sign up" primary={true}/>
          </div>
          </MuiThemeProvider>
         </div>

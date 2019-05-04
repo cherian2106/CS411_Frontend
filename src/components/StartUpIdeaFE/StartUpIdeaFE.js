@@ -90,23 +90,18 @@ constructor()
                     </Menu.Item>
                 </Menu.Menu>
             </Menu>
-        {/* <button onClick = {this.Logout} label="Login">Logout</button> */}
             <Grid>
                 <Grid.Column width={15}>
                     <Search
-                    //   className = {startupidea.searchbar}
-                    //   style = {{width: "300px"}}
                         input={{ fluid: true }}
-                        // input = {{"font-size": "20px"}}
                         size='large'
-                        // style={{ width: "500px" }}
                         loading={this.state.isLoading}
                         onResultSelect={this.handleResultSelect}
                         onSearchChange={_.debounce(this.handleSearchChange, 500, { leading: true })}
                         results={this.state.results}
                         value={this.state.value}
                         resultRenderer={resRender}
-                    // {...this.props}
+                        placeholder="Search for startups here..."
                     />
                 </Grid.Column>
                 <Button className = {startupidea.gobtn}> Go </Button>
