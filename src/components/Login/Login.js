@@ -21,7 +21,11 @@ constructor(props){
     Auth.signInWithEmailAndPassword(this.state.username, this.state.password)
     .then(function(result) {
       console.log(result)
-    }).catch(e => console.log(e.message));
+      window.location.href = process.env.PUBLIC_URL+"/search";
+    })
+    .catch(function(err){
+      window.alert(err.code);
+    });
 }
 
 render() {
@@ -31,8 +35,8 @@ render() {
           <div>
             <TextField
              className = {login.user}
-             hintText="Enter your Username"
-             floatingLabelText="Username"
+             hintText="Enter your Email"
+             floatingLabelText="Email"
              onChange = {(event,newValue) => this.setState({username:newValue})}
              />
              <TextField
