@@ -103,23 +103,13 @@ class StartupIdea extends Component
         };
       }
 
-      NewStartUp = () => {
-        var update = {
-            Name: this.state.name,
-            Category: this.state.category,
-            Location: this.state.location,
-            Money_raised: this.state.money_raised,
-            Launch_date: this.state.launch_date,
-            UserID: this.props.match.params.uid
-        }
+      predictStartUp = () => {
         // console.log(update);
-        var url = `https://backendvaradk2.herokuapp.com/startups`;
-        // console.log(url);
-        Axios.post(url, update)
+        var url = `https://advanced-functionality-cs498.herokuapp.com/predict?category=`+ this.state.category.value+
+        '&month='+this.state.month+'&backers='+this.state.backers+'&country='+this.state.country;
+        Axios.get(url)
         .then((res) => {
           console.log(res);
-          var startupid = res.data.insertId;
-          window.location.href = process.env.PUBLIC_URL+`/startups/${startupid}`+"/"+this.props.match.params.uid;
         })
         .catch((err) => {
           console.log(err);
@@ -149,12 +139,20 @@ class StartupIdea extends Component
                 fluid
                 selection
                 options={friendOptions}
+                onChange = {(event,newValue) => this.setState({category:newValue})}
               />
              <TextField
               //  className = {signup.password}
                hintText="Enter Backers If any"
                floatingLabelText="Number of Backers"
                onChange = {(event,newValue) => this.setState({backers:newValue})}
+               />
+             <br/>
+             <TextField
+              //  className = {signup.password}
+               hintText="Enter Month"
+               floatingLabelText="Month"
+               onChange = {(event,newValue) => this.setState({month:newValue})}
                />
              <br/>
              <TextField
