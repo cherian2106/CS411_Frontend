@@ -27,8 +27,12 @@ constructor(props)
   }
 
  Logout = () => {
-  Auth.signOut().then(function(result){window.location.href = process.env.PUBLIC_URL+"/"})
-  .catch(function(err){window.alert(err.code)});
+    Auth.signOut().then(function(result){window.location.href = process.env.PUBLIC_URL+"/"})
+    .catch(function(err){window.alert(err.code)});
+ }
+
+ viewMyStartups = () => {
+    window.location.href = process.env.PUBLIC_URL+`/mystartups/`+this.props.match.params.uid;
  }
 
 //   resetComponent = () => this.setState({ isLoading: false, results: [], value: '' })
@@ -88,6 +92,14 @@ constructor(props)
                     <Menu.Item
                         name='editorials'
                         color='red'
+                        onClick = {this.viewMyStartups}
+                        // active={activeItem === 'editorials'}
+                        // onClick={this.handleItemClick}
+                    > View my startups
+                    </Menu.Item>
+                    <Menu.Item
+                        name='editorials'
+                        color='red'
                         onClick = {this.Logout}
                         // active={activeItem === 'editorials'}
                         // onClick={this.handleItemClick}
@@ -112,7 +124,6 @@ constructor(props)
             </Grid>
             <div><Feed results = {this.state.results.slice(this.state.curr_iter, 10)} /></div>
         </div>
-        
     </div>
     )
   }
