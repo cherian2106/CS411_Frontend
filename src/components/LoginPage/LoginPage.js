@@ -6,6 +6,10 @@ import loginpage from './LoginPage.module.scss'
 
 
 class LoginPage extends Component {
+
+  componentWillMount() {
+    
+  }
     render() {
       return (
           <div className = {loginpage.loginpage}>

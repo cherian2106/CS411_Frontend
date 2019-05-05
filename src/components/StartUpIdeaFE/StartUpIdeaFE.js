@@ -19,12 +19,33 @@ constructor()
             curr_iter: 0
         };
         this.Logout = this.Logout.bind(this);
-
+        this.Create = this.Create.bind(this);
   }
 
+  Create = () => {
+    window.location.href = process.env.PUBLIC_URL+`/create`;
+  }
+
+<<<<<<< Updated upstream
  Logout = () => {
   Auth.signOut().then(function(result){window.location.href = process.env.PUBLIC_URL+"/"})
   .catch(function(err){window.alert(err.code)});
+=======
+
+  Logout = () => {
+   console.log("reached")
+    let config = {
+    apiKey: "AIzaSyBaoiWVV8vuD8uiRI3AiFEvC3xCs8m2MTY",
+    authDomain: "cs411-c57f9.firebaseapp.com",
+    databaseURL: "https://cs411-c57f9.firebaseio.com",
+    projectId: "cs411-c57f9",
+    storageBucket: "cs411-c57f9.appspot.com",
+    messagingSenderId: "259780274004"
+  };
+  firebase.initializeApp(config);
+    const res = firebase.auth().signOut();
+    res.then(window.location.href = process.env.PUBLIC_URL+"/");
+>>>>>>> Stashed changes
  }
 
 //   resetComponent = () => this.setState({ isLoading: false, results: [], value: '' })
@@ -70,6 +91,15 @@ constructor()
     return (
         <div>
             <Menu inverted className={startupidea.navbar}>
+                <Menu.Item
+                    name='editorials'
+                    onClick = {this.Create}
+                    // color='red'
+                    // onClick = {this.Logout}
+                    // active={activeItem === 'editorials'}
+                    // onClick={this.handleItemClick}
+                > Create New Startup
+                </Menu.Item>
                 <Menu.Menu position='right'>
                     <Menu.Item
                         name='editorials'
