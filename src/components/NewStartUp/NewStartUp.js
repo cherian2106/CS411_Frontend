@@ -13,22 +13,30 @@ class NewStartUp extends Component
     constructor() {
         super();
         this.state = {
-          pokemon: []
+          name: "",
+          category : "",
+          money_raised: "",
+          location: "",
+          launch_date: ""
         };
       }
 
-    sendPost = () => {
+      NewStartUp = () => {
         var update = {
-            Name: this.name.value,
-            Category: this.category.value,
-            Money_raised: this.money_raised.value,
-            Location: this.location.value
+            Name: this.state.name,
+            Category: this.state.category,
+            Location: this.state.location,
+            Money_raised: this.state.money_raised,
+            Launch_date: this.state.launch_date
         }
+        console.log(update);
         var url = `https://backendvaradk2.herokuapp.com/startups`;
-        // console.log(url);
+        console.log(url);
         Axios.post(url, update)
         .then((res) => {
           console.log(res);
+          var startupid = res.data.insertId;
+          window.location.href = process.env.PUBLIC_URL+`/startups/${startupid}`;
         })
         .catch((err) => {
           console.log(err);
@@ -51,28 +59,28 @@ class NewStartUp extends Component
               //  className = {signup.username}
                hintText="Enter Category"
                floatingLabelText="Category"
-               onChange = {(event,newValue) => this.setState({username:newValue})}
+               onChange = {(event,newValue) => this.setState({category:newValue})}
                />
             <br/>
              <TextField
               //  className = {signup.password}
                hintText="Enter Money Raised"
                floatingLabelText="Money Raised"
-               onChange = {(event,newValue) => this.setState({password:newValue})}
+               onChange = {(event,newValue) => this.setState({money_raised:newValue})}
                />
              <br/>
              <TextField
               //  className = {signup.password}
                hintText="Enter Location"
                floatingLabelText="Location"
-               onChange = {(event,newValue) => this.setState({password:newValue})}
+               onChange = {(event,newValue) => this.setState({location:newValue})}
                />
              <br/>
              <TextField
               //  className = {signup.password}
                hintText="YYYY-MM-DD"
                floatingLabelText="Launch Date"
-               onChange = {(event,newValue) => this.setState({password:newValue})}
+               onChange = {(event,newValue) => this.setState({launch_date:newValue})}
                />
              <br/>
              <RaisedButton onClick = {this.NewStartUp} label="Sign up" primary={true}/>
