@@ -8,9 +8,9 @@ import startupidea from './StartUpIdeaFE.module.scss'
 import Auth from '../../config.js'
 
 class StartUpIdeaFE extends Component {
-constructor()
+constructor(props)
   {
-        super();
+        super(props);
         this.state ={
             isLoading: false,
             results: [],
@@ -23,7 +23,7 @@ constructor()
   }
 
   Create = () => {
-    window.location.href = process.env.PUBLIC_URL+`/create`;
+    window.location.href = process.env.PUBLIC_URL+`/create/`+this.props.match.params.uid;
   }
 
  Logout = () => {
@@ -35,7 +35,7 @@ constructor()
 
   handleResultSelect = (e, { result }) => {
       console.log(result);
-      window.location.href = process.env.PUBLIC_URL+"/startups/" + result.StartupID;
+      window.location.href = process.env.PUBLIC_URL+"/startups/" + result.StartupID + "/" + this.props.match.params.uid;
       this.setState({ value: result.Name });
   }
 

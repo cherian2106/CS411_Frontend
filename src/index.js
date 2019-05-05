@@ -14,9 +14,9 @@ ReactDOM.render(<LoginPage />, document.getElementById('root'));
 ReactDOM.render(<Router>
     <div>
       <Route exact path={process.env.PUBLIC_URL+"/"} component={LoginPage} />
-      <Route exact path={process.env.PUBLIC_URL+"/create"} component={NewStartUp} />
-      <Route exact path={process.env.PUBLIC_URL+"/Search"} component={StartUpIdeaFE} />
-      <Route exact path={process.env.PUBLIC_URL+"/startups/:id"} component={ViewStartup} />
+      <Route exact path={process.env.PUBLIC_URL+"/create/:uid"} component={NewStartUp} />
+      <Route exact path={process.env.PUBLIC_URL+"/Search/:uid"} component={StartUpIdeaFE} />
+      <Route exact path={process.env.PUBLIC_URL+"/startups/:id/:uid"} component={ViewStartup} />
     </div>
 </Router>, document.getElementById('root'));
 // If you want your app to work offline and load faster, you can change

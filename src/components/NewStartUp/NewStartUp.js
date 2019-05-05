@@ -36,7 +36,7 @@ class NewStartUp extends Component
         .then((res) => {
           console.log(res);
           var startupid = res.data.insertId;
-          window.location.href = process.env.PUBLIC_URL+`/startups/${startupid}`;
+          window.location.href = process.env.PUBLIC_URL+`/startups/${startupid}`+"/"+this.props.match.params.uid;
         })
         .catch((err) => {
           console.log(err);

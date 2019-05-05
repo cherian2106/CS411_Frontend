@@ -31,7 +31,13 @@ class ViewStartup extends Component
 
 
   handleEdit = () => {
+    var url = `https://backendvaradk2.herokuapp.com/startups/${this.state.id}`
+    if(this.state.result.UserID == this.props.match.params.id){
     this.setState({isEditing: true})
+    }
+    else{
+      window.alert("Unable to edit: Not your startup")
+    }
   }
   handleDelete = () => {
     // console.log(this.state.id);
@@ -68,7 +74,7 @@ class ViewStartup extends Component
     }
     return(
       <div className="CardContainer">
-            <Link to={process.env.PUBLIC_URL+'/search'}>
+            <Link to={process.env.PUBLIC_URL+'/search/'+this.props.match.params.uid}>
               <Button className="ui button"> Back To Search </Button>
             </Link>
             <div className="ui centered card">

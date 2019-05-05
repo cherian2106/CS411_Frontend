@@ -21,7 +21,7 @@ constructor(props){
   Auth.signInWithEmailAndPassword(this.state.username, this.state.password)
   .then(function(result) {
     console.log(result)
-    window.location.href = process.env.PUBLIC_URL+"/search";
+    window.location.href = process.env.PUBLIC_URL+"/search/"+result.user.uid;
   })
   .catch(function(err){
     window.alert(err.code);
