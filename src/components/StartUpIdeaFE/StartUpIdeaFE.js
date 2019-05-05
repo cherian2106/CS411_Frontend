@@ -112,6 +112,7 @@ constructor(props)
             </Grid>
             <div><Feed results = {this.state.results.slice(this.state.curr_iter, 10)} /></div>
         </div>
+        
     </div>
     )
   }

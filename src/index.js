@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import LoginPage from './components/LoginPage/LoginPage';
 import StartUpIdeaFE from './components/StartUpIdeaFE/StartUpIdeaFE';
-import ViewStartup from './ViewStartup';
+import ViewStartup from './components/ViewStartup/ViewStartup';
 import * as serviceWorker from './serviceWorker';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 // import UpdateForm from './UpdateForm';
