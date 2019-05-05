@@ -15,12 +15,23 @@ class ViewStartup extends Component
     super(props)
     this.state={
       id : props.match.params.id,
-      result: {}
+      result: {},
       // elems : {},
+      isEditing: false,
+      update_name: "",
+      update_category: "",
+      update_launch_data: "",
+      update_location: "",
+      update_money_raised: ""
     }
     this.handleDelete = this.handleDelete.bind(this);
+    this.handleEdit = this.handleEdit.bind(this);
   }
 
+
+  handleEdit = () => {
+    this.setState({isEditing: true})
+  }
   handleDelete = () => {
     // console.log(this.state.id);
     var url = `https://backendvaradk2.herokuapp.com/startups/${this.state.id}`
@@ -49,6 +60,11 @@ class ViewStartup extends Component
   }
 
   render() {
+    if (this.state.isEditing) {
+      return (
+        <UpdateForm result = {this.state.result}/>
+      )
+    }
     return(
       <div className="CardContainer">
             <Link to={process.env.PUBLIC_URL+'/search'}>
@@ -73,7 +89,7 @@ class ViewStartup extends Component
                       </p>
                   </Card.Content>
                 </Card>
-                {/* <button onClick = {this.handleDelete} className="ui button">Delete</button> */}
+                <button onClick = {this.handleEdit} className="ui button">Edit</button>
             </div>
             {/* <UpdateForm id = {this.state.elems.StartupID}></UpdateForm> */}
       </div>
