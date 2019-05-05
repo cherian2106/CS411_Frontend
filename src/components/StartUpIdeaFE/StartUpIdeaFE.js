@@ -6,6 +6,8 @@ import FeedCard from '../FeedCard/FeedCard';
 import firebase from 'firebase';
 import startupidea from './StartUpIdeaFE.module.scss'
 import Auth from '../../config.js'
+import { Link } from 'react-router-dom';
+
 
 class StartUpIdeaFE extends Component {
 constructor(props)
@@ -57,7 +59,6 @@ constructor(props)
       })
     }, 300)
   }
-
   render() {
     // const { isLoading, value, results } = this.state
     const resRender = ({ Name }) => (
@@ -88,6 +89,16 @@ constructor(props)
                     // onClick={this.handleItemClick}
                 > Create New Startup
                 </Menu.Item>
+                <Link to={process.env.PUBLIC_URL+'/startupidea'} >
+                <Menu.Item
+                    name='editorials'
+                    onClick = {this.predict_Startup}
+                    // color='red'
+                    // onClick = {this.Logout}
+                    // active={activeItem === 'editorials'}
+                    // onClick={this.handleItemClick}
+                > Predict Startup Success
+                </Menu.Item></Link>
                 <Menu.Menu position='right'>
                     <Menu.Item
                         name='editorials'

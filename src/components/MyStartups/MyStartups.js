@@ -3,7 +3,7 @@ import Axios from 'axios'
 import mystartup from './MyStartups.module.scss'
 import FeedCard from '../FeedCard/FeedCard.js'
 import { Link } from 'react-router-dom';
-import { Card, Button } from 'semantic-ui-react';
+import { Button } from 'semantic-ui-react';
 
 
 class NewStartUp extends Component
