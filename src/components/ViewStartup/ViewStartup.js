@@ -9,6 +9,7 @@ import Axios from 'axios';
 import Comment from '../Comment/comment.js'
 import viewstartup from './ViewStartup.scss'
 
+
 // import 'semantic-ui-react';
 // import 'semantic-ui-css/semantic.min';
 
@@ -95,7 +96,7 @@ class ViewStartup extends Component
     </ul>
     )};
     return(
-      <div className="CardContainer">
+      <div className="container">
             <Link to={process.env.PUBLIC_URL+'/search/'+this.props.match.params.uid}>
               <img class = 'back' src = 'https://cdn3.iconfinder.com/data/icons/line/36/arrow_left-512.png'></img>
             </Link>

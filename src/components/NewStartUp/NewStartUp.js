@@ -7,6 +7,10 @@ import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import Axios from 'axios';
 import RaisedButton from 'material-ui/RaisedButton';
 import TextField from 'material-ui/TextField';
+import newstartup from './NewStartUp.module.scss';
+import styles from './robot.css';
+import { Link } from 'react-router-dom';
+import { Card, Button } from 'semantic-ui-react';
 
 class NewStartUp extends Component
 {
@@ -47,9 +51,14 @@ class NewStartUp extends Component
       render(){
         // console.log(this.props.match.params.uid);
     return(
-    <div>
+
+    <div className = {newstartup.main}>
         <MuiThemeProvider>
-          <div>
+        <Link to={process.env.PUBLIC_URL+'/search/'+this.props.match.params.uid}>
+              <Button className="ui button"> Back To Search </Button>
+              
+          </Link>
+          <div className = {newstartup.text}>
             <TextField
             //  className = {signup.user}
              hintText="Enter Startup name"
@@ -85,10 +94,33 @@ class NewStartUp extends Component
                onChange = {(event,newValue) => this.setState({launch_date:newValue})}
                />
              <br/>
-             <RaisedButton onClick = {this.NewStartUp} label="Sign up" primary={true}/>
+             <br/>
+             <RaisedButton onClick = {this.NewStartUp} label="Create" primary={true}/>
          </div>
          </MuiThemeProvider>
+        
+
+         <div class="robots">
+            <div class="android"> 
+              <div class="head"> 
+                <div class="eyes"> 
+                  <div class="left_eye"></div> 
+                  <div class="right_eye"></div>
+                </div> 
+              </div> 
+              <div class="upper_body"> 
+                <div class="left_arm"></div> 
+                <div class="torso"></div> 
+                <div class="right_arm"></div> 
+              </div> 
+              <div class="lower_body"> 
+                <div class="left_leg"></div> 
+                <div class="right_leg"></div> 
+              </div> 
+            </div>
+          </div>
     </div>
+    
     );
   }
 
