@@ -5,10 +5,11 @@ import TextField from 'material-ui/TextField';
 import React, { Component } from 'react';
 import signup from './SignUp.module.scss'
 import Auth from '../../config.js'
+import Axios from 'axios'
 class SignUp extends Component {
 
-    constructor(props){
-        super(props);
+    constructor(){
+      super();
         this.state = {
             email:'',
             password:'',
@@ -18,21 +19,41 @@ class SignUp extends Component {
             location: '',
             occupation: ''
         }
+        this.SignUpClick = this.SignUpClick.bind(this);
     }
 // Initialize Firebase
+  // resetComponent = () => this.setState({ email: false, results: [], value: '' })
 
-SignUpClick = () =>{
-    // console.log(this.state.email)
-    // console.log(this.state.password)
+SignUpClick = () => {
+    console.log(this.state.email)
+    console.log(this.state.password)
     Auth.createUserWithEmailAndPassword(this.state.email, this.state.password)
-    .then(function(result){ 
+    .then((result) => { 
+        var update = {
+          UserID: result.user.uid,
+          Name: this.state.username,
+          Email_id: this.state.email,
+          Location: this.state.location,
+          Occupation: this.state.occupation,
+          Age: this.state.age
+        }
+
+        var url = `https://backendvaradk2.herokuapp.com/users`;
+        Axios.post(url, update)
+        .then((res) => {
+          console.log("reacheed post success")
+          console.log(res)
+        })
+        .catch((err) => {
+          console.log("err here in post");
+        });
       window.alert("Sign Up Successful");
+      window.location.href = process.env.PUBLIC_URL;
     })
     .catch(function(err){
       console.log(err)
       window.alert(err.code);
     });
-    // res.catch(e => console.log(e.message))
 }
 
     render() {
