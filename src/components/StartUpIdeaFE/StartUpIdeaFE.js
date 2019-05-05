@@ -72,6 +72,7 @@ constructor()
       </ul>
       )};
     return (
+    <div className = {startupidea.whole}>
         <div>
             <Menu inverted className={startupidea.navbar}>
                 <Menu.Item
@@ -95,8 +96,8 @@ constructor()
                 </Menu.Menu>
             </Menu>
             <Grid>
-                <Grid.Column width={15}>
-                    <Search
+                <Grid.Column width={16}>
+                    <Search className = {startupidea.search}
                         input={{ fluid: true }}
                         size='large'
                         loading={this.state.isLoading}
@@ -108,10 +109,10 @@ constructor()
                         placeholder="Search for startups here..."
                     />
                 </Grid.Column>
-                <Button className = {startupidea.gobtn}> Go </Button>
             </Grid>
             <div><Feed results = {this.state.results.slice(this.state.curr_iter, 10)} /></div>
         </div>
+    </div>
     )
   }
 }
