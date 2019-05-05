@@ -27,7 +27,6 @@ class NewStartUp extends Component
           console.log(error);
         })
     }
-
     render(){
         console.log(this.props.match);
         const Feed = ({results}) => {
@@ -51,12 +50,6 @@ class NewStartUp extends Component
                     <Feed results = {this.state.result} />
                 </div>
             );
-        // }
-        // return (
-        //     <div>
-        //         <p> No startups yet! </p>
-        //     </div>
-        // )
     }
 }
 

@@ -34,7 +34,7 @@ class UpdateForm extends Component
       Axios.put(url, update)
       .then((res) => {
         console.log(res);
-        window.location.href = process.env.PUBLIC_URL+`/startups/${this.props.result.StartupID}`;
+        window.location.href = process.env.PUBLIC_URL+`/mystartups/${this.props.result.UserID}`;
       })
       .catch((err) => {
         console.log(err);

@@ -6,7 +6,7 @@ import { Form } from 'semantic-ui-react';
 import UpdateForm from '../../UpdateForm.js';
 import Axios from 'axios';
 import Comment from '../Comment/comment.js'
-import viewstartup from './ViewStartup.scss'
+import viewstartup from './ViewStartup.module.scss'
 
 
 // import 'semantic-ui-react';
@@ -21,7 +21,6 @@ class ViewStartup extends Component
       result: {},
       comments: [],
       newComment: '',
-      isEditing: false,
       update_name: "",
       update_category: "",
       update_launch_data: "",
@@ -29,19 +28,9 @@ class ViewStartup extends Component
       update_money_raised: ""
     }
     this.handleDelete = this.handleDelete.bind(this);
-    this.handleEdit = this.handleEdit.bind(this);
+    // this.handleEdit = this.handleEdit.bind(this);
   }
 
-
-  handleEdit = () => {
-    var url = `https://backendvaradk2.herokuapp.com/startups/${this.state.id}`
-    if(this.state.result.UserID == this.props.match.params.uid){
-    this.setState({isEditing: true})
-    }
-    else{
-      window.alert("Unable to edit: Not your startup")
-    }
-  }
   handleDelete = () => {
     // console.log(this.state.id);
     var url = `https://backendvaradk2.herokuapp.com/startups/${this.state.id}`
@@ -98,11 +87,6 @@ class ViewStartup extends Component
   }
 
   render() {
-    if (this.state.isEditing) {
-      return (
-        <UpdateForm result = {this.state.result}/>
-      )
-    }
     const Comments = ({results}) => {
       // console.log(results);
     return (<ul >
@@ -114,29 +98,29 @@ class ViewStartup extends Component
     </ul>
     )};
     return(
-      <div className="container">
-            <Link to={process.env.PUBLIC_URL+'/search/'+this.props.match.params.uid}>
-              <img class = 'back' src = 'https://cdn3.iconfinder.com/data/icons/line/36/arrow_left-512.png'></img>
-            </Link>
-            <img onClick = {this.handleEdit} class = 'edit' src = 'https://cdn3.iconfinder.com/data/icons/google-material-design-icons/48/ic_mode_edit_48px-512.png'></img>
-            <div className="card">
-            <div class = "NameHead">{this.state.result.Name}</div>
-            <div class = 'author1'>By: {this.state.result.User_name} </div>
-              <div class="box">
-                <img class = 'img' src = 'https://cdn.iconscout.com/icon/free/png-256/account-avatar-profile-human-man-user-30448.png'></img>
-                  <div class = 'date'>{this.state.result.Launch_date}  </div>
-                  <p>
-                    Category: {this.state.result.Category} <br></br>
-                    Location: {this.state.result.Location} <br></br>
-                    Amount Raised: ${this.state.result.Money_raised} <br></br>
-                  </p>
-                </div>
+      <div className={viewstartup.container}>
+        <Link to={process.env.PUBLIC_URL+'/search/'+this.props.match.params.uid}>
+          <img className = {viewstartup.back} src = 'https://cdn3.iconfinder.com/data/icons/line/36/arrow_left-512.png'></img>
+        </Link>
+        {/* <img onClick = {this.handleEdit} class = 'edit' src = 'https://cdn3.iconfinder.com/data/icons/google-material-design-icons/48/ic_mode_edit_48px-512.png'></img> */}
+        <div className= {viewstartup.card}>
+        <div className = {viewstartup.NameHead}>{this.state.result.Name}</div>
+        <div className = {viewstartup.author1}>By: {this.state.result.User_name} </div>
+          <div className= {viewstartup.box}>
+            <img className = {viewstartup.img} src = 'https://cdn.iconscout.com/icon/free/png-256/account-avatar-profile-human-man-user-30448.png'></img>
+              <div className = {viewstartup.date}>{this.state.result.Launch_date}  </div>
+              <p>
+                Category: {this.state.result.Category} <br></br>
+                Location: {this.state.result.Location} <br></br>
+                Amount Raised: ${this.state.result.Money_raised} <br></br>
+              </p>
             </div>
-            <Comments results = {this.state.comments}></Comments>
-            <Form className = {viewstartup.comment_form} >
-            <Form.TextArea onChange = {(event,newValue) => this.setState({newComment:newValue})} />
-            <Button onClick = {this.Comment_Post} content='Add Comment' labelPosition='left' icon='edit' primary />
-            </Form>
+        </div>
+        <Comments results = {this.state.comments}></Comments>
+        <Form className = {viewstartup.comment_form} >
+        <Form.TextArea onChange = {(event,newValue) => this.setState({newComment:newValue})} />
+        <Button onClick = {this.Comment_Post} content='Add Comment' labelPosition='left' icon='edit' primary />
+        </Form>
       </div>
     )
   }
