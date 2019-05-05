@@ -5,6 +5,7 @@ import { Search, Grid, Button, Menu, Header, Segment } from 'semantic-ui-react'
 import FeedCard from '../FeedCard/FeedCard';
 import firebase from 'firebase';
 import startupidea from './StartUpIdeaFE.module.scss'
+import Auth from '../../config.js'
 
 class StartUpIdeaFE extends Component {
 constructor()
@@ -22,18 +23,8 @@ constructor()
   }
 
  Logout = () => {
-   console.log("reached")
-  let config = {
-    apiKey: "AIzaSyBaoiWVV8vuD8uiRI3AiFEvC3xCs8m2MTY",
-    authDomain: "cs411-c57f9.firebaseapp.com",
-    databaseURL: "https://cs411-c57f9.firebaseio.com",
-    projectId: "cs411-c57f9",
-    storageBucket: "cs411-c57f9.appspot.com",
-    messagingSenderId: "259780274004"
-  };
-  firebase.initializeApp(config);
-    const res = firebase.auth().signOut();
-    res.then(window.location.href = process.env.PUBLIC_URL+"/");
+  Auth.signOut().then(function(result){window.location.href = process.env.PUBLIC_URL+"/"})
+  .catch(function(err){window.alert(err.code)});
  }
 
 //   resetComponent = () => this.setState({ isLoading: false, results: [], value: '' })
