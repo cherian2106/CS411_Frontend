@@ -7,6 +7,8 @@ import { Link } from 'react-router-dom';
 import UpdateForm from '../../UpdateForm.js';
 import Axios from 'axios';
 import Comment from '../Comment/comment.js'
+import viewstartup from './ViewStartup.scss'
+
 // import 'semantic-ui-react';
 // import 'semantic-ui-css/semantic.min';
 
@@ -75,29 +77,30 @@ class ViewStartup extends Component
     return(
       <div className="CardContainer">
             <Link to={process.env.PUBLIC_URL+'/search/'+this.props.match.params.uid}>
-              <Button className="ui button"> Back To Search </Button>
+              <img class = 'back' src = 'https://cdn3.iconfinder.com/data/icons/line/36/arrow_left-512.png'></img>
             </Link>
-            <div className="ui centered card">
-                <p> startUp Name: {this.state.result.Name}</p>
-                <Card>
-                  <Image src =  ''/>
-                  <Card.Content>
-                      <Card.Header>StartUp name: {this.state.result.Name} </Card.Header>
-                      <Card.Meta></Card.Meta>
-                      <Card.Description></Card.Description>
-                  </Card.Content>
-                  <Card.Content extra>
-                      <p>
-                      <Icon name='user' />
-                        Category: {this.state.result.Category} <br></br>
-                        Launch date: {this.state.result.Launch_date} <br></br>
-                        Location: {this.state.result.Location} <br></br>
-                        Money raised: {this.state.result.Money_raised} <br></br>
-                        Created By: {this.state.result.UserID} <br></br>
-                      </p>
-                  </Card.Content>
-                </Card>
-                <button onClick = {this.handleEdit} className="ui button">Edit</button>
+          
+            <img onClick = {this.handleEdit} class = 'edit' src = 'https://cdn3.iconfinder.com/data/icons/google-material-design-icons/48/ic_mode_edit_48px-512.png'></img>
+            
+            <div className="card">
+            <div class = "NameHead">{this.state.result.Name}</div>
+            <div class = 'author1'>By: {this.state.result.UserID} </div>
+            
+                    
+
+                    <div class="box">
+                      <img class = 'img' src = 'https://cdn.iconscout.com/icon/free/png-256/account-avatar-profile-human-man-user-30448.png'></img>
+                        <div class = 'date'>{this.state.result.Launch_date}  </div>
+                        
+                        <p>
+                          Category: {this.state.result.Category} <br></br>
+                          Location: {this.state.result.Location} <br></br>
+                          Amount Raised: ${this.state.result.Money_raised} <br></br>
+                          
+                        </p>
+                      </div>
+                  
+               
             </div>
             <Comment></Comment>
       </div>

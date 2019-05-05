@@ -1,114 +1,120 @@
 
-.robots {
-	flex-wrap: wrap;
-	display: flex;
-	justify-content: center;
+
+
+.CardContainer{
+    background: url('https://i.pinimg.com/originals/50/a7/8b/50a78b21b11300c8e71ec378ebdbaabf.jpg') no-repeat;
+    background-color: rgba(255, 255, 255, 0.4);
+    background-blend-mode: lighten;
+   
+    
+    background-size: cover;
+    background-repeat:repeat-x;
+    background-attachment:fixed;
+    background-position: left top;
+    height: 1000px;
 }
 
-.head, 
-.left_arm, 
-.torso, 
-.right_arm, 
-.left_leg, 
-.right_leg {
-	 background-color: #5f93e8;
-}
+.card{
+    padding-top: 40px;
+   
 
-.head { 
-	width: 200px; 
-	margin: 0 auto; 
-	height: 150px; 
-	border-radius: 200px 200px 0 0; 
-	margin-bottom: 10px;
-} 
 
-.eyes {
-	display: flex
-}
-
-.head:hover {
-	width: 300px;
-    transition: 1s ease-in-out;
-}
-
-.upper_body { 
-	width: 300px; 
-	height: 150px;
-	display: flex; 
-} 
-
-.left_arm, .right_arm { 
-	width: 40px; 
-	height: 125px;
-	border-radius: 100px; 
-} 
-
-.left_arm { 
-	margin-right: 10px; 
-} 
-
-.right_arm { 
-	margin-left: 10px; 
-} 
-
-.torso { 
-	width: 200px; 
-	height: 200px;
-	border-radius: 0 0 50px 50px; 
-} 
-
-.lower_body { 
-	width: 200px; 
-	height: 200px;
-	/* This is another useful property. Hmm what do you think it does?*/
-	margin: 0 auto;
-	display: flex; 
-} 
-
-.left_leg, .right_leg { 
-	width: 40px; 
-	height: 120px;
-	border-radius: 0 0 100px 100px; 
-} 
-
-.left_leg { 
-	margin-left: 45px; 
-} 
-
-.left_leg:hover {
-	-webkit-transform: rotate(20deg);
-    -moz-transform: rotate(20deg);
-    -o-transform: rotate(20deg);
-    -ms-transform: rotate(20deg);
-    transform: rotate(20deg);
-}
-
-.right_leg { 
-	margin-left: 30px; 
-}
-
-.left_eye, .right_eye { 
-	width: 20px; 
-	height: 20px; 
-	border-radius: 15px; 
-	background-color: white;  
-} 
-
-.left_eye { 
-	/* These properties are new and you haven't encountered
-	in this course. Check out CSS Tricks to see what it does! */
-	position: relative; 
-	top: 100px; 
-	left: 40px; 
-} 
-
-.right_eye { 
-	position: relative; 
-	top: 100px; 
-	left: 120px; 
 }
 
 
 
+.box{
+    width: 50%;
+    height: 320px;
+    background: rgba(0, 0, 0, 0.4);
+    padding: 22px;
+    text-align: center;
+    margin: auto;
+   
+    
+    
+   
+    color: black;
+    
+  }
 
 
+
+.img{
+    border-radius: 50%;
+    width: 120px;
+    height: 107px;
+  }
+  
+  
+  .NameHead{
+    font-size: 43px;
+    letter-spacing: 2.5px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    font-family: Andale Mono, monospace;
+    text-align: center;
+
+    
+    
+  }
+  
+  .box p{
+    line-height: 1.6;
+    padding-right: 23px;
+    padding-left: 23px;
+    text-align: center;
+     font-size: 22px;
+     font-weight: bold;
+   
+    font-family: Andale Mono, monospace;
+    
+  }
+
+  .date{
+    font-size: 20px;
+    letter-spacing: 2px;
+    font-weight: bold;
+    
+    margin-bottom: 24px;
+    font-family: Andale Mono, monospace;
+
+  }
+
+  .author1{
+      text-align: center;
+      margin-bottom: 35px;
+      font-size: 20px;
+      font-weight: bold;
+      font-family: Andale Mono, monospace;
+  }
+
+  .back{
+    position: absolute;
+    top: 32%;
+    left: 10%;
+    width: 90px;
+    height: 90px;
+    background: rgba(0, 0, 0, 0.5);
+    border-radius: 50px;
+    padding: 10px;
+
+}
+
+.edit{
+    position: absolute;
+    top: 32%;
+    left: 84%;
+    width: 90px;
+    height: 90px;
+    background: rgba(0, 0, 0, 0.5);
+    border-radius: 50px;
+    padding: 10px;
+
+}
+
+
+.back:hover, .edit:hover{
+    filter: invert(40%);
+  transition: 0.8s;
+}
