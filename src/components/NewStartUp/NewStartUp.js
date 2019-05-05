@@ -27,11 +27,12 @@ class NewStartUp extends Component
             Category: this.state.category,
             Location: this.state.location,
             Money_raised: this.state.money_raised,
-            Launch_date: this.state.launch_date
+            Launch_date: this.state.launch_date,
+            UserID: this.props.match.params.uid
         }
-        console.log(update);
+        // console.log(update);
         var url = `https://backendvaradk2.herokuapp.com/startups`;
-        console.log(url);
+        // console.log(url);
         Axios.post(url, update)
         .then((res) => {
           console.log(res);
@@ -44,6 +45,7 @@ class NewStartUp extends Component
     }
 
       render(){
+        // console.log(this.props.match.params.uid);
     return(
     <div>
         <MuiThemeProvider>

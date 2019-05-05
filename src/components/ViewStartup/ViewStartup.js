@@ -93,6 +93,7 @@ class ViewStartup extends Component
                         Launch date: {this.state.result.Launch_date} <br></br>
                         Location: {this.state.result.Location} <br></br>
                         Money raised: {this.state.result.Money_raised} <br></br>
+                        Created By: {this.state.result.UserID} <br></br>
                       </p>
                   </Card.Content>
                 </Card>
