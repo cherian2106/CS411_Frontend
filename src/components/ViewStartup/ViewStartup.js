@@ -4,9 +4,9 @@ import { Card, Button } from 'semantic-ui-react';
 import {Image} from 'semantic-ui-react';
 import {Icon} from 'semantic-ui-react';
 import { Link } from 'react-router-dom';
-import UpdateForm from './UpdateForm';
+import UpdateForm from '../../UpdateForm.js';
 import Axios from 'axios';
-import Comment from '../src/components/Comment/comment.js'
+import Comment from '../Comment/comment.js'
 // import 'semantic-ui-react';
 // import 'semantic-ui-css/semantic.min';
 
