@@ -1,9 +1,8 @@
 import React, { Component } from 'react'
 // import { Card, Icon, Image } from 'semantic-ui-react/semantic.min'
-import { Card, Button } from 'semantic-ui-react';
-import {Image} from 'semantic-ui-react';
-import {Icon} from 'semantic-ui-react';
+import { Button } from 'semantic-ui-react';
 import { Link } from 'react-router-dom';
+import { Form } from 'semantic-ui-react';
 import UpdateForm from '../../UpdateForm.js';
 import Axios from 'axios';
 import Comment from '../Comment/comment.js'
@@ -21,7 +20,7 @@ class ViewStartup extends Component
       id : props.match.params.id,
       result: {},
       comments: [],
-      // elems : {},
+      newComment: '',
       isEditing: false,
       update_name: "",
       update_category: "",
@@ -36,7 +35,7 @@ class ViewStartup extends Component
 
   handleEdit = () => {
     var url = `https://backendvaradk2.herokuapp.com/startups/${this.state.id}`
-    if(this.state.result.UserID == this.props.match.params.id){
+    if(this.state.result.UserID == this.props.match.params.uid){
     this.setState({isEditing: true})
     }
     else{
@@ -76,6 +75,21 @@ class ViewStartup extends Component
     })
     .catch((error) => {
       console.log(error);
+    })
+  }
+
+  Comment_Post = () => {
+    // this.setState(newComment)
+    var url = `https://backendvaradk2.herokuapp.com/comments`;
+    var update = {
+      StartupID : this.props.match.params.id,
+      UserID : this.props.match.params.uid,
+      Comment : this.state.newComment,
+      Date : new Date
+  }
+    Axios.post(url, update)
+    .then((res) => {
+      console.log(res)
     })
   }
 
@@ -123,6 +137,11 @@ class ViewStartup extends Component
                   
                
             </div>
+            <Form className = {viewstartup.comment_form}
+            onChange = {(event,newValue) => this.setState({newComment:newValue})} >
+            <Form.TextArea />
+            <Button onClick = {this.Comment_Post} content='Add Comment' labelPosition='left' icon='edit' primary />
+            </Form>
             <Comments results = {this.state.comments}></Comments>
       </div>
     )
