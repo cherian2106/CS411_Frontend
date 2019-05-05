@@ -6,6 +6,7 @@ import {Icon} from 'semantic-ui-react';
 import { Link } from 'react-router-dom';
 import UpdateForm from './UpdateForm';
 import Axios from 'axios';
+import Comment from '../src/components/Comment/comment.js'
 // import 'semantic-ui-react';
 // import 'semantic-ui-css/semantic.min';
 
@@ -91,7 +92,7 @@ class ViewStartup extends Component
                 </Card>
                 <button onClick = {this.handleEdit} className="ui button">Edit</button>
             </div>
-            {/* <UpdateForm id = {this.state.elems.StartupID}></UpdateForm> */}
+            <Comment></Comment>
       </div>
     )
   }
