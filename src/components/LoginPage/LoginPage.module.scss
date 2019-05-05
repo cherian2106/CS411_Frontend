@@ -63,3 +63,24 @@
     display: flex;
     justify-content: space-between;
 }
+
+.image_button_container{
+    position: relative;
+    width: 100%;
+}
+
+.signup_here{
+    position: absolute;
+  top: 90%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  background-color: #555;
+  color: white;
+  font-size: 16px;
+//   padding: 12px 24px;
+  border: none;
+  cursor: pointer;
+  border-radius: 2em;
+//   border-radius: 5px;
+}
