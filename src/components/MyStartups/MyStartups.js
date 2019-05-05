@@ -35,7 +35,7 @@ class NewStartUp extends Component
                 <ul className = {mystartup.feedul}>
                 {results.map(result => (
                     <li className = {mystartup.feedli} key = {result.StartupID}>
-                        <FeedCard elems = {result}/>
+                        <FeedCard elems = {result}  mine = "yes"/>
                     </li>
                 ))}
                 </ul>
@@ -47,7 +47,7 @@ class NewStartUp extends Component
                         <Button className="ui button"> Back To Search </Button>
                     </Link>
                     <h3> You have {this.state.result.length} startups! </h3>
-                    <Feed results = {this.state.result} />
+                    <Feed results = {this.state.result}/>
                 </div>
             );
     }

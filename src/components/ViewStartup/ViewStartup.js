@@ -27,28 +27,15 @@ class ViewStartup extends Component
       update_location: "",
       update_money_raised: ""
     }
-    this.handleDelete = this.handleDelete.bind(this);
+    // this.handleDelete = this.handleDelete.bind(this);
     // this.handleEdit = this.handleEdit.bind(this);
   }
 
-  handleDelete = () => {
-    // console.log(this.state.id);
-    var url = `https://backendvaradk2.herokuapp.com/startups/${this.state.id}`
-    Axios.delete(url)
-    .then((res) => {
-      console.log(res);
-    })
-    .catch((err) => {
-      console.log(err);
-    })
-  }
 
   componentWillMount = () =>{
     // console.log(this.props.location.state.elems);
     // this.setState({elems: this.props.location.state.elems});
     var url = `https://backendvaradk2.herokuapp.com/startups/${this.state.id}`;
-    // var url = `http://localhost:4000/startups/${this.state.id}`
-    // console.log(url);
     Axios.get(url)
         .then((res) => {
             this.setState({result: res.data[0]});
@@ -58,8 +45,8 @@ class ViewStartup extends Component
           // console.log(error);
         })
 
-    var url = `https://backendvaradk2.herokuapp.com/comments/${this.state.id}`
-    // var url = `http://localhost:4000/comments/${this.state.id}`
+    // var url = `https://backendvaradk2.herokuapp.com/comments/${this.state.id}`
+    var url = `http://localhost:4000/comments/${this.state.id}`
     Axios.get(url)
     .then((res) => {
         this.setState({comments: res.data});
@@ -87,12 +74,13 @@ class ViewStartup extends Component
   }
 
   render() {
+    // var curr_user = this.props.match.params.uid;
     const Comments = ({results}) => {
       // console.log(results);
     return (<ul >
       {results.map(result => (
           <li key = {result.CommentID}>
-              <Comment comment = {result}/>
+              <Comment comment = {result} curr_user = {this.props.match.params.uid}/>
           </li>
       ))}
     </ul>

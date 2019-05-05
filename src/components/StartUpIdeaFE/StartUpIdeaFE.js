@@ -37,10 +37,9 @@ constructor(props)
     window.location.href = process.env.PUBLIC_URL+`/mystartups/`+this.props.match.params.uid;
  }
 
-//   resetComponent = () => this.setState({ isLoading: false, results: [], value: '' })
 
   handleResultSelect = (e, { result }) => {
-      console.log(result);
+      // console.log(result);
       window.location.href = process.env.PUBLIC_URL+"/startups/" + result.StartupID + "/" + this.props.match.params.uid;
       this.setState({ value: result.Name });
   }
@@ -48,7 +47,7 @@ constructor(props)
   handleSearchChange = (e, {value}) => {
     this.setState({ isLoading: true, value })
     var url = `https://backendvaradk2.herokuapp.com/startups?name="${value}"`;
-    console.log(url);
+    // console.log(url);
     axios.get(url)
         .then((res) => {
             this.setState({results: res.data});
@@ -67,7 +66,7 @@ constructor(props)
       </span>
     );
     const Feed = ({results}) => {
-        console.log(results);
+        // console.log(results);
       return (<ul className = {startupidea.feedul}>
         {results.map(result => (
             <li className = {startupidea.feedli} key = {result.StartupID}>
