@@ -1,9 +1,16 @@
 .innerContain {
     display: flex;
     float: right;
-    // text-align: right;
-    // background-color: blue;
+    padding-bottom: 8px;
+   
 }
 .user {
     margin-right: 10px;
 }
+.password {
+    margin-right: 10px;
+}
+
+// .submit_container{
+//     text-align: center;
+// }
