@@ -1,29 +1,35 @@
 import React, { Component } from 'react'
 import { Comment, Icon } from 'semantic-ui-react'
+import Axios from 'axios';
 
 class comment extends Component
 {
-    constructor(){super()}
+    constructor(props)
+    {
+        super(props)
+        this.state = {
+            username: '',
+            date: '',
+            comment: ''
+        }
+    }
+
     render() {
         return(
-  <Comment.Group>
-    <Comment>
-      <Comment.Avatar as='a' src='https://react.semantic-ui.com/images/avatar/small/stevie.jpg' />
-      <Comment.Content>
-        <Comment.Author>Stevie Feliciano</Comment.Author>
-        <Comment.Metadata>
-          <div>2 days ago</div>
-          <div>
-            <Icon name='star' />
-            5 Faves
-          </div>
-        </Comment.Metadata>
-        <Comment.Text>
-          Hey guys, I hope this example comment is helping you read this documentation.
-        </Comment.Text>
-      </Comment.Content>
-    </Comment>
-  </Comment.Group>
+            <Comment.Group>
+                <Comment>
+                <Comment.Avatar as='a' src='https://react.semantic-ui.com/images/avatar/small/stevie.jpg' />
+                <Comment.Content>
+                    <Comment.Author>Stevie Feliciano</Comment.Author>
+                    <Comment.Metadata>
+                    <div>{this.props.comment.Date}</div>
+                    </Comment.Metadata>
+                    <Comment.Text>
+                    {this.props.comment.Comment}
+                    </Comment.Text>
+                </Comment.Content>
+                </Comment>
+            </Comment.Group>
         )}
 }
 

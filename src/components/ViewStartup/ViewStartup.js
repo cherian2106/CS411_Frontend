@@ -19,6 +19,7 @@ class ViewStartup extends Component
     this.state={
       id : props.match.params.id,
       result: {},
+      comments: [],
       // elems : {},
       isEditing: false,
       update_name: "",
@@ -66,6 +67,15 @@ class ViewStartup extends Component
         .catch((error) => {
           console.log(error);
         })
+
+    var url = `https://backendvaradk2.herokuapp.com/comments/${this.state.id}`
+    Axios.get(url)
+    .then((res) => {
+        this.setState({comments: res.data});
+    })
+    .catch((error) => {
+      console.log(error);
+    })
   }
 
   render() {
@@ -74,6 +84,16 @@ class ViewStartup extends Component
         <UpdateForm result = {this.state.result}/>
       )
     }
+    const Comments = ({results}) => {
+      // console.log(results);
+    return (<ul >
+      {results.map(result => (
+          <li key = {result.CommentID}>
+              <Comment comment = {result}/>
+          </li>
+      ))}
+    </ul>
+    )};
     return(
       <div className="CardContainer">
             <Link to={process.env.PUBLIC_URL+'/search/'+this.props.match.params.uid}>
@@ -102,7 +122,7 @@ class ViewStartup extends Component
                   
                
             </div>
-            <Comment></Comment>
+            <Comments results = {this.state.comments}></Comments>
       </div>
     )
   }
