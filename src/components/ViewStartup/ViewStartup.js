@@ -58,6 +58,7 @@ class ViewStartup extends Component
     // console.log(this.props.location.state.elems);
     // this.setState({elems: this.props.location.state.elems});
     var url = `https://backendvaradk2.herokuapp.com/startups/${this.state.id}`;
+    // var url = `http://localhost:4000/startups/${this.state.id}`
     // console.log(url);
     Axios.get(url)
         .then((res) => {
@@ -69,6 +70,7 @@ class ViewStartup extends Component
         })
 
     var url = `https://backendvaradk2.herokuapp.com/comments/${this.state.id}`
+    // var url = `http://localhost:4000/comments/${this.state.id}`
     Axios.get(url)
     .then((res) => {
         this.setState({comments: res.data});
@@ -116,28 +118,19 @@ class ViewStartup extends Component
             <Link to={process.env.PUBLIC_URL+'/search/'+this.props.match.params.uid}>
               <img class = 'back' src = 'https://cdn3.iconfinder.com/data/icons/line/36/arrow_left-512.png'></img>
             </Link>
-          
             <img onClick = {this.handleEdit} class = 'edit' src = 'https://cdn3.iconfinder.com/data/icons/google-material-design-icons/48/ic_mode_edit_48px-512.png'></img>
-            
             <div className="card">
             <div class = "NameHead">{this.state.result.Name}</div>
-            <div class = 'author1'>By: {this.state.result.UserID} </div>
-            
-                    
-
-                    <div class="box">
-                      <img class = 'img' src = 'https://cdn.iconscout.com/icon/free/png-256/account-avatar-profile-human-man-user-30448.png'></img>
-                        <div class = 'date'>{this.state.result.Launch_date}  </div>
-                        
-                        <p>
-                          Category: {this.state.result.Category} <br></br>
-                          Location: {this.state.result.Location} <br></br>
-                          Amount Raised: ${this.state.result.Money_raised} <br></br>
-                          
-                        </p>
-                      </div>
-                  
-               
+            <div class = 'author1'>By: {this.state.result.User_name} </div>
+              <div class="box">
+                <img class = 'img' src = 'https://cdn.iconscout.com/icon/free/png-256/account-avatar-profile-human-man-user-30448.png'></img>
+                  <div class = 'date'>{this.state.result.Launch_date}  </div>
+                  <p>
+                    Category: {this.state.result.Category} <br></br>
+                    Location: {this.state.result.Location} <br></br>
+                    Amount Raised: ${this.state.result.Money_raised} <br></br>
+                  </p>
+                </div>
             </div>
             <Comments results = {this.state.comments}></Comments>
             <Form className = {viewstartup.comment_form} >

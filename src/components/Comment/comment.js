@@ -20,7 +20,7 @@ class comment extends Component
                 <Comment>
                 <Comment.Avatar as='a' src='https://react.semantic-ui.com/images/avatar/small/stevie.jpg' />
                 <Comment.Content>
-                    <Comment.Author>Stevie Feliciano</Comment.Author>
+                    <Comment.Author>{this.props.comment.Name}</Comment.Author>
                     <Comment.Metadata>
                     <div>{this.props.comment.Date}</div>
                     </Comment.Metadata>
