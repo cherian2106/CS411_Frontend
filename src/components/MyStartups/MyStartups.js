@@ -16,7 +16,7 @@ class NewStartUp extends Component
     }
 
     componentWillMount() {
-        var url = `http://localhost:4000/startups?uid="${this.props.match.params.uid}"`;
+        var url = `https://backendvaradk2.herokuapp.com/startups?uid="${this.props.match.params.uid}"`;
         // console.log(url);
         Axios.get(url)
         .then((res) => {
