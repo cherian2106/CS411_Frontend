@@ -10,6 +10,7 @@ import { BrowserRouter as Router, Route } from 'react-router-dom';
 // import UpdateForm from './UpdateForm';
 import NewStartUp from './components/NewStartUp/NewStartUp.js';
 import "semantic-ui-css/semantic.min.css";
+import StartupIdea from './StartupIdea';
 
 ReactDOM.render(<LoginPage />, document.getElementById('root'));
 ReactDOM.render(<Router>
@@ -19,6 +20,7 @@ ReactDOM.render(<Router>
       <Route exact path={process.env.PUBLIC_URL+"/Search/:uid"} component={StartUpIdeaFE} />
       <Route exact path={process.env.PUBLIC_URL+"/startups/:id/:uid"} component={ViewStartup} />
       <Route exact path={process.env.PUBLIC_URL+"/mystartups/:uid"} component={MyStartups} />
+      <Route exact path={process.env.PUBLIC_URL+"/startupidea"} component={StartupIdea} />
     </div>
 </Router>, document.getElementById('root'));
 // If you want your app to work offline and load faster, you can change

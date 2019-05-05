@@ -62,10 +62,10 @@ class ViewStartup extends Component
     Axios.get(url)
         .then((res) => {
             this.setState({result: res.data[0]});
-            console.log(this.state.result);
+            // console.log(this.state.result);
         })
         .catch((error) => {
-          console.log(error);
+          // console.log(error);
         })
 
     var url = `https://backendvaradk2.herokuapp.com/comments/${this.state.id}`
@@ -81,15 +81,17 @@ class ViewStartup extends Component
   Comment_Post = () => {
     // this.setState(newComment)
     var url = `https://backendvaradk2.herokuapp.com/comments`;
+    console.log(url)
+    console.log(this.state.newComment.value)
     var update = {
       StartupID : this.props.match.params.id,
       UserID : this.props.match.params.uid,
-      Comment : this.state.newComment,
+      Comment : this.state.newComment.value,
       Date : new Date
   }
     Axios.post(url, update)
     .then((res) => {
-      console.log(res)
+      window.location.href = process.env.PUBLIC_URL+"/startups/"+this.state.id + '/' + this.props.match.params.uid;
     })
   }
 
@@ -137,12 +139,11 @@ class ViewStartup extends Component
                   
                
             </div>
-            <Form className = {viewstartup.comment_form}
-            onChange = {(event,newValue) => this.setState({newComment:newValue})} >
-            <Form.TextArea />
+            <Comments results = {this.state.comments}></Comments>
+            <Form className = {viewstartup.comment_form} >
+            <Form.TextArea onChange = {(event,newValue) => this.setState({newComment:newValue})} />
             <Button onClick = {this.Comment_Post} content='Add Comment' labelPosition='left' icon='edit' primary />
             </Form>
-            <Comments results = {this.state.comments}></Comments>
       </div>
     )
   }
