@@ -36,6 +36,7 @@ class LoginPage extends Component {
           <div ref={(el) => { this.messagesEnd = el; }} className = {loginpage.signup}>
             <SignUp ></SignUp>
           </div>
+          <div className = {loginpage.explain}>Connecting Entrepreneur and Startups Since 2019</div>
           <img className = {loginpage.image3} alt = "logo" src = "https://www.shareicon.net/data/2016/01/15/703724_people_512x512.png"></img>
           </div>
           <br/>

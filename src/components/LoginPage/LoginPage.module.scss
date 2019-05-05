@@ -22,6 +22,7 @@
 .signup {
     text-align: center;
     margin-right: 5%;
+    margin-top: 10px;
     
 }
 .bar {
@@ -87,4 +88,19 @@
   cursor: pointer;
   border-radius: 2em;
 //   border-radius: 5px;
+}
+
+
+.explain{
+    font-family: "Lucida Console", Monaco, monospace;
+    font-size: 1.3em;
+    font-weight: bold;
+    position: absolute;
+  top: 18.5%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  color: white;
+  
+  cursor: pointer;
 }
