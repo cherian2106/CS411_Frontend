@@ -15,9 +15,12 @@ class MySU extends Component
           isEditing: false,
         }
     }
+    View = () => {
+        // console.log(this.state.elems)
+        window.location.href = process.env.PUBLIC_URL+`/startups/${this.state.elems.StartupID}/${this.state.elems.UserID}`
+    }
     handleEdit = () => {
         this.setState({isEditing: true})
-    
     }
 
     componentWillMount = () =>{
@@ -33,8 +36,8 @@ class MySU extends Component
             <div className={mysu.CardContainer}>
               <img onClick = {this.handleEdit} className = {mysu.edit} src = 'https://cdn3.iconfinder.com/data/icons/google-material-design-icons/48/ic_mode_edit_48px-512.png'></img>
               {/* <Link to={process.env.PUBLIC_URL+'/search'}><button className="ui button">Back To Search</button></Link> */}
-              <div className="ui centered card">
-                <p> startUp Name: {this.state.elems.Name}</p>
+              <div className="ui centered card" onClick = {this.View}>
+                {/* <p> startUp Name: {this.state.elems.Name}</p> */}
                 <Card>
                   <Image src =  ''/>
                   <Card.Content>
