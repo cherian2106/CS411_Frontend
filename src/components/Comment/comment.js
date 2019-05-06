@@ -16,7 +16,7 @@ class comment extends Component
     }
     
     handleCommentDelete() {
-        var url = `http://localhost:4000/comments/${this.props.comment.CommentID}`;
+        var url = `https://backendvaradk2.herokuapp.com/comments/${this.props.comment.CommentID}`;
         if(this.props.comment.UserID === this.props.curr_user) {
             Axios.delete(url)
             .then(res => {

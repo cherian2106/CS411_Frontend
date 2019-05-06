@@ -35,7 +35,7 @@ class ViewStartup extends Component
         .catch((error) => {
         })
 
-    var url = `http://localhost:4000/comments/${this.state.id}`
+    var url = `https://backendvaradk2.herokuapp.com/comments/${this.state.id}`
     Axios.get(url)
     .then((res) => {
         this.setState({comments: res.data});
