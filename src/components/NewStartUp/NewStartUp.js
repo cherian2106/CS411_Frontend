@@ -102,7 +102,7 @@ class NewStartUp extends Component
       NewStartUp = () => {
         var update = {
             Name: this.state.name,
-            Category: this.state.category,
+            Category: this.state.category.value,
             Location: this.state.location,
             Money_raised: this.state.money_raised,
             Launch_date: this.state.launch_date,
