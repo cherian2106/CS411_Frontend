@@ -13,11 +13,28 @@
 // .navbar {
 //   color: blue;
 // }
-
+.title1{
+  text-align: center;
+  margin-top: 23px;
+  margin-bottom: -23px;
+  font-family: "Lucida Console", Monaco, monospace;
+  font-size: 2.8em;
+  font-weight: bold;
+  border:4px solid black;
+  padding: 19px;
+  margin-left: 30%;
+  margin-right: 30%;
+  border-top-left-radius: 20%;
+  border-top-right-radius: 20%;
+}
 
 .whole {
  
-  background: url('http://papers.co/wallpaper/papers.co-si14-foggy-sky-blue-gradation-blur-1-wallpaper.jpg') no-repeat;
+  
+  background: url('https://i.pinimg.com/originals/50/a7/8b/50a78b21b11300c8e71ec378ebdbaabf.jpg') no-repeat;
+  background-color: rgba(255, 255, 255, 0.4);
+ 
+  //background: url('http://papers.co/wallpaper/papers.co-si14-foggy-sky-blue-gradation-blur-1-wallpaper.jpg') no-repeat;
  
   background-blend-mode: lighten;
   

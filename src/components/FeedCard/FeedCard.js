@@ -21,7 +21,9 @@ class Feed extends Component
           <div className="card">
             <div className={feedcard.title}> {this.state.elems.Name}</div>
             <img className = {feedcard.img} src = 'https://cdn.iconscout.com/icon/free/png-256/account-avatar-profile-human-man-user-30448.png'></img>
-                 
+            
+         
+           
                   <p>
                     Category: {this.state.elems.Category} <br></br>
                     Launch date: {this.state.elems.Launch_date} <br></br>

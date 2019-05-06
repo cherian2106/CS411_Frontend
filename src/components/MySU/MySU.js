@@ -38,17 +38,16 @@ class MySU extends Component
                 <Card>
                   <Image src =  ''/>
                   <Card.Content>
-                      <Card.Header>StartUp name: {this.state.elems.Name} </Card.Header>
+                      <Card.Header>{this.state.elems.Name} </Card.Header>
                       <Card.Meta></Card.Meta>
                       <Card.Description></Card.Description>
                   </Card.Content>
                   <Card.Content extra>
                       <p>
-                      <Icon name='user' />
-                        Category: {this.state.elems.Category} <br></br>
-                        Launch date: {this.state.elems.Launch_date} <br></br>
+                        {this.state.elems.Category} <br></br>
+                         {this.state.elems.Launch_date} <br></br>
                         Location: {this.state.elems.Location} <br></br>
-                        Money raised: {this.state.elems.Money_raised} <br></br>
+                        Amount Raised: {this.state.elems.Money_raised} <br></br>
                       </p>
                   </Card.Content>
                 </Card>

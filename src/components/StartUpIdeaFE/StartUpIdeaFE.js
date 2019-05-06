@@ -143,7 +143,7 @@ Create = () => {
                 </Grid.Column>
             </Grid>
             <div className={startupidea.title_container}>
-              <div className={startupidea.title}>Your Feed</div>
+              <div className={startupidea.title1}>Suggested Feed</div>
             </div>
             <br></br><br></br>
             <div><Feed results = {this.state.elems} /></div>

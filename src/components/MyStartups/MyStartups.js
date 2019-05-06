@@ -42,7 +42,9 @@ class NewStartUp extends Component
                     <Link to={process.env.PUBLIC_URL+'/search/'+this.props.match.params.uid}>
                         <Button className="ui button"> Back To Search </Button>
                     </Link>
-                    <h3> You have {this.state.result.length} startups! </h3>
+                    <div className = {mystartup.display}>
+                      You have {this.state.result.length} startups!
+                    </div>
                     <Startups results = {this.state.result}/>
                 </div>
             );

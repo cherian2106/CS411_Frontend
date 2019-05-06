@@ -12,4 +12,15 @@
 
 .CardContainer {
     position: relative;
+    text-align: center;
+}
+
+.CardContainer p{
+    text-align: center;
+}
+
+
+.edit:hover{
+    filter: invert(40%);
+  transition: 0.8s;
 }

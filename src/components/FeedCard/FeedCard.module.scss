@@ -1,20 +1,28 @@
 
 
 .container{
-    width: 93%;
+    width: 88%;
     height: 200px;
-    background: rgba(0, 0, 0, 0.75);
+    background: rgba(0, 0, 0, 0.30);
     padding: 14px;
     text-align: center;
     margin: auto;
    
-    color:white;
+    color:black;
     //border-top-right-radius: 30%;
-    border-bottom-right-radius: 35%;
+    border-bottom-right-radius: 45%;
     border-top-left-radius: 20%;
-    border-top-right-radius: 10%;
+    border-top-right-radius: 15%;
+    margin-bottom: 16px;
     
   }
+
+
+
+.edit:hover{
+    filter: invert(40%);
+  transition: 0.8s;
+}
 
 
   .container:hover{
@@ -23,6 +31,7 @@
     border-bottom-left-radius: 20%;
     border-bottom-right-radius: 0%;
     border-top-left-radius: 10%;
+    background: rgba(0, 0, 0, 0.54);
     
   }
 
@@ -31,11 +40,12 @@
     padding-right: 23px;
     padding-left: 23px;
     text-align: center;
-     font-size: 22px;
+     font-size: 28px;
      font-weight: bold;
    
     font-family: Andale Mono, monospace;
     margin-bottom: 10px;
+    border-bottom: 2px solid black;
     
   }
 
@@ -46,7 +56,9 @@
     padding-left: 23px;
     text-align: left;
     font-size: 17px;
-    font-weight: 500;
+    font-weight: 600;
+    letter-spacing: 2px;
+    
  
    
     font-family: Andale Mono, monospace;
@@ -57,10 +69,13 @@
 
 
 .img{
-    width: 110px;
+    width: 140px;
     height: 107px;
     float: left;
     margin-left: 25px;
-    margin-right: 50px;
+    margin-right: 76px;
+    padding-right: 28px;
+    border-right: 2px solid black;
+
   }
 
