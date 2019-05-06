@@ -211,7 +211,7 @@ class StartupIdea extends Component
              fluid
              selection
              options={monthOptions}
-             onChange = {(event,newValue) => this.setState({category:newValue})}
+             onChange = {(event,newValue) => this.setState({month:newValue})}
            />
            </div>
              <TextField
