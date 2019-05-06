@@ -29,34 +29,7 @@ class Feed extends Component
   }
 
   render() {
-<<<<<<< HEAD
     // console.log(this.props.mine)
-=======
-    // console.log(this.props.mine);
-    if (this.props.mine === "yes") {
-      if (this.state.isEditing) {
-        return (
-          <UpdateForm result = {this.state.elems}/>
-        )
-      }
-      return(
-        <div className={feedcard.container}>
-          <div className="card">
-            <p> startUp Name: {this.state.elems.Name}</p>
-                  <p>
-                  
-                    Category: {this.state.elems.Category} <br></br>
-                    Launch date: {this.state.elems.Launch_date} <br></br>
-                    Location: {this.state.elems.Location} <br></br>
-                    Money raised: {this.state.elems.Money_raised} <br></br>
-                  </p>
-           
-          </div>
-        </div>
-      )
-    }
-    else {
->>>>>>> 74e4453a49c25d21926addd378df681c72a2ad1c
       return (
         <div className={feedcard.container}>
           <div className="card">
