@@ -182,7 +182,7 @@ class StartupIdea extends Component
       predictStartUp = () => {
         var url = `https://advanced-functionality-cs498.herokuapp.com/predict?category=`+ this.state.category.value+
         '&month='+this.state.month.value+'&backers='
-        +this.state.backers+'&country='+this.state.country
+        +this.state.backers+'&country='+this.state.country.value
         +'&money_raised='+this.state.money_raised;
         Axios.get(url)
         .then((res) => {
@@ -246,7 +246,7 @@ class StartupIdea extends Component
              fluid
              selection
              options={countryOptions}
-             onChange = {(event,newValue) => this.setState({category:newValue})}
+             onChange = {(event,newValue) => this.setState({country:newValue})}
            />
            </div>
              <TextField
