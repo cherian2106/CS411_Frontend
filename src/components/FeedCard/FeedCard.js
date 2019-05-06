@@ -42,55 +42,38 @@ class Feed extends Component
         )
       }
       return(
-        <div className={feedcard.CardContainer}>
-          <img onClick = {this.handleEdit} className = {feedcard.edit} src = 'https://cdn3.iconfinder.com/data/icons/google-material-design-icons/48/ic_mode_edit_48px-512.png'></img>
-          {/* <Link to={process.env.PUBLIC_URL+'/search'}><button className="ui button">Back To Search</button></Link> */}
-          <div className="ui centered card">
+        <div className={feedcard.container}>
+          <div className="card">
             <p> startUp Name: {this.state.elems.Name}</p>
-            <Card>
-              <Image src =  ''/>
-              <Card.Content>
-                  <Card.Header>StartUp name: {this.state.elems.Name} </Card.Header>
-                  <Card.Meta></Card.Meta>
-                  <Card.Description></Card.Description>
-              </Card.Content>
-              <Card.Content extra>
                   <p>
-                  <Icon name='user' />
+                  
                     Category: {this.state.elems.Category} <br></br>
                     Launch date: {this.state.elems.Launch_date} <br></br>
                     Location: {this.state.elems.Location} <br></br>
                     Money raised: {this.state.elems.Money_raised} <br></br>
                   </p>
-              </Card.Content>
-            </Card>
+           
           </div>
         </div>
       )
     }
     else {
       return (
-        <div className={feedcard.CardContainer}>
-            <div className="ui centered card">
-              <p> startUp Name: {this.state.elems.Name}</p>
-              <Card>
-                <Image src =  ''/>
-                <Card.Content>
-                    <Card.Header>StartUp name: {this.state.elems.Name} </Card.Header>
-                    <Card.Meta></Card.Meta>
-                    <Card.Description></Card.Description>
-                </Card.Content>
-                <Card.Content extra>
-                    <p>
-                    <Icon name='user' />
-                      Category: {this.state.elems.Category} <br></br>
-                      Launch date: {this.state.elems.Launch_date} <br></br>
-                      Location: {this.state.elems.Location} <br></br>
-                      Money raised: {this.state.elems.Money_raised} <br></br>
-                    </p>
-                </Card.Content>
-              </Card>
-            </div>
+        <div className={feedcard.container}>
+          <div className="card">
+            <div className={feedcard.title}> {this.state.elems.Name}</div>
+            <img className = {feedcard.img} src = 'https://cdn.iconscout.com/icon/free/png-256/account-avatar-profile-human-man-user-30448.png'></img>
+                 
+                  <p>
+                    Category: {this.state.elems.Category} <br></br>
+                    Launch date: {this.state.elems.Launch_date} <br></br>
+                    Location: {this.state.elems.Location} <br></br>
+                    Amount Raised: {this.state.elems.Money_raised} <br></br>
+                  </p>
+
+                  
+           
+          </div>
         </div>
       )
     }
