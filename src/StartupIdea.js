@@ -167,7 +167,7 @@ class StartupIdea extends Component
       }
 
       predictStartUp = () => {
-        var url = `http://127.0.0.1:5000/predict?category=`+ this.state.category.value+
+        var url = `https://advanced-functionality-cs498.herokuapp.com/predict?category=`+ this.state.category.value+
         '&month='+this.state.month.value+'&backers='
         +this.state.backers+'&country='+this.state.country
         +'&money_raised='+this.state.money_raised;
@@ -180,6 +180,11 @@ class StartupIdea extends Component
         .catch((err) => {
           console.log(err);
         })
+    }
+
+    clear_graph = () => {
+      var url = `https://advanced-functionality-cs498.herokuapp.com/predict_delete`;
+      Axios.get(url).then((res) => {console.log(res)}).catch((err) => {console.log(err)});
     }
 
   render(){
@@ -235,6 +240,7 @@ class StartupIdea extends Component
              <br/>
 
              <RaisedButton onClick = {this.predictStartUp} label="PREDICT" primary={true}/>
+             <RaisedButton onClick = {this.clear_graph} label="CLEAR GRAPH" primary={true}/>
          </div>
          <img src = {this.state.imgbase}></img>
          </MuiThemeProvider>
