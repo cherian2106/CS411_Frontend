@@ -161,7 +161,8 @@ class StartupIdea extends Component
           backers : 0,
           month: "",
           country: "",
-          money_raised: 0
+          money_raised: 0,
+          imgbase: ""
         };
       }
 
@@ -173,6 +174,8 @@ class StartupIdea extends Component
         Axios.get(url)
         .then((res) => {
           console.log(res);
+          this.setState({imgbase: "data:image/png;base64,"+res.data});
+          console.log(this.state.imgbase);
         })
         .catch((err) => {
           console.log(err);
@@ -231,8 +234,9 @@ class StartupIdea extends Component
                />
              <br/>
 
-             <RaisedButton onClick = {this.predictStartUp} label="Create" primary={true}/>
+             <RaisedButton onClick = {this.predictStartUp} label="PREDICT" primary={true}/>
          </div>
+         <img src = {this.state.imgbase}></img>
          </MuiThemeProvider>
     </div>
     </div>
