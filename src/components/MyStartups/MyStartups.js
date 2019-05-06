@@ -4,6 +4,7 @@ import mystartup from './MyStartups.module.scss'
 import FeedCard from '../FeedCard/FeedCard.js'
 import { Link } from 'react-router-dom';
 import { Button } from 'semantic-ui-react';
+import MySU from '../MySU/MySU.js'
 
 
 class NewStartUp extends Component
@@ -28,14 +29,14 @@ class NewStartUp extends Component
         })
     }
     render(){
-        console.log(this.props.match);
-        const Feed = ({results}) => {
-            console.log(results);
+        // console.log(this.props.match);
+        const Startups = ({results}) => {
+            // console.log(results);
             return (
                 <ul className = {mystartup.feedul}>
                 {results.map(result => (
                     <li className = {mystartup.feedli} key = {result.StartupID}>
-                        <FeedCard elems = {result}  mine = "yes"/>
+                        <MySU elems = {result}/>
                     </li>
                 ))}
                 </ul>
@@ -47,7 +48,7 @@ class NewStartUp extends Component
                         <Button className="ui button"> Back To Search </Button>
                     </Link>
                     <h3> You have {this.state.result.length} startups! </h3>
-                    <Feed results = {this.state.result}/>
+                    <Startups results = {this.state.result}/>
                 </div>
             );
     }

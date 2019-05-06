@@ -20,55 +20,16 @@ class Feed extends Component
     super(props)
     this.state={
       elems : {},
-      isEditing: false,
     }
   }
 
-  handleEdit = () => {
-    this.setState({isEditing: true})
-
-  }
 
   componentWillMount = () =>{
     this.setState({elems: this.props.elems});
   }
 
   render() {
-    // console.log(this.props.mine);
-    if (this.props.mine === "yes") {
-      if (this.state.isEditing) {
-        return (
-          <UpdateForm result = {this.state.elems}/>
-        )
-      }
-      return(
-        <div className={feedcard.CardContainer}>
-          <img onClick = {this.handleEdit} className = {feedcard.edit} src = 'https://cdn3.iconfinder.com/data/icons/google-material-design-icons/48/ic_mode_edit_48px-512.png'></img>
-          {/* <Link to={process.env.PUBLIC_URL+'/search'}><button className="ui button">Back To Search</button></Link> */}
-          <div className="ui centered card">
-            <p> startUp Name: {this.state.elems.Name}</p>
-            <Card>
-              <Image src =  ''/>
-              <Card.Content>
-                  <Card.Header>StartUp name: {this.state.elems.Name} </Card.Header>
-                  <Card.Meta></Card.Meta>
-                  <Card.Description></Card.Description>
-              </Card.Content>
-              <Card.Content extra>
-                  <p>
-                  <Icon name='user' />
-                    Category: {this.state.elems.Category} <br></br>
-                    Launch date: {this.state.elems.Launch_date} <br></br>
-                    Location: {this.state.elems.Location} <br></br>
-                    Money raised: {this.state.elems.Money_raised} <br></br>
-                  </p>
-              </Card.Content>
-            </Card>
-          </div>
-        </div>
-      )
-    }
-    else {
+    // console.log(this.props.mine)
       return (
         <div className={feedcard.CardContainer}>
             <div className="ui centered card">
@@ -93,7 +54,6 @@ class Feed extends Component
             </div>
         </div>
       )
-    }
   }
 }
 export default Feed
