@@ -5,7 +5,7 @@ import RaisedButton from 'material-ui/RaisedButton';
 import TextField from 'material-ui/TextField';
 import { Dropdown , Card, Button } from 'semantic-ui-react';
 import startupidea from './StartupIdea.module.scss'
-
+import { Link } from 'react-router-dom';
 
 const friendOptions = [
   {
@@ -181,7 +181,9 @@ class StartupIdea extends Component
 
   render(){
     return(
-
+    <div className = {startupidea.imgcont}><Link to={process.env.PUBLIC_URL+'/search/'+this.props.match.params.uid}>
+         <Button className="ui button"> Back To Search </Button>
+          </Link>
     <div className = {startupidea.cont}>
         <MuiThemeProvider>
           <div >
@@ -232,6 +234,7 @@ class StartupIdea extends Component
              <RaisedButton onClick = {this.predictStartUp} label="Create" primary={true}/>
          </div>
          </MuiThemeProvider>
+    </div>
     </div>
     
     );
