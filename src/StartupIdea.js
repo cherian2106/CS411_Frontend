@@ -180,7 +180,7 @@ class StartupIdea extends Component
       }
 
       predictStartUp = () => {
-        var url = `https://advanced-functionality-cs498.herokuapp.com/predict?category=`+ this.state.category.value+
+        var url = `http://127.0.0.1:5000/predict?category=`+ this.state.category.value+
         '&month='+this.state.month.value+'&backers='
         +this.state.backers+'&country='+this.state.country.value
         +'&money_raised='+this.state.money_raised;
@@ -196,7 +196,7 @@ class StartupIdea extends Component
     }
 
     clear_graph = () => {
-      var url = `https://advanced-functionality-cs498.herokuapp.com/predict_delete`;
+      var url = `http://127.0.0.1:5000/predict_delete`;
       Axios.get(url).then((res) => {console.log(res)}).catch((err) => {console.log(err)});
     }
 
