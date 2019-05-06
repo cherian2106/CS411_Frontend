@@ -16,6 +16,7 @@ constructor(props)
         this.state ={
             isLoading: false,
             results: [],
+            elems: [],
             value: '',
             // ans: {},
             curr_iter: 0
@@ -24,9 +25,30 @@ constructor(props)
         this.Create = this.Create.bind(this);
   }
 
-  Create = () => {
-    window.location.href = process.env.PUBLIC_URL+`/create/`+this.props.match.params.uid;
-  }
+componentWillMount(){
+
+  var url = `https://backendvaradk2.herokuapp.com/startups`;
+    // console.log(url);
+    axios.get(url)
+        .then((res) => {
+            var n = 9;
+            var result = new Array(n),
+            len = res.data.length,
+            taken = new Array(len);
+            if (n > len)
+                throw new RangeError("getRandom: more elements taken than available");
+            while (n--) {
+                var x = Math.floor(Math.random() * len);
+                result[n] = res.data[x in taken ? taken[x] : x];
+                taken[x] = --len in taken ? taken[len] : len;
+            }
+            this.setState({elems: result});
+        })
+}
+
+Create = () => {
+  window.location.href = process.env.PUBLIC_URL+`/create/`+this.props.match.params.uid;
+}
 
  Logout = () => {
     Auth.signOut().then(function(result){window.location.href = process.env.PUBLIC_URL+"/"})
@@ -58,6 +80,7 @@ constructor(props)
       })
     }, 300)
   }
+
   render() {
     // const { isLoading, value, results } = this.state
     const resRender = ({ Name }) => (
@@ -132,7 +155,11 @@ constructor(props)
                     />
                 </Grid.Column>
             </Grid>
-            <div><Feed results = {this.state.results.slice(this.state.curr_iter, 10)} /></div>
+            <div className={startupidea.title_container}>
+              <div className={startupidea.title}>Your Feed</div>
+            </div>
+            <br></br><br></br>
+            <div><Feed results = {this.state.elems} /></div>
         </div>
     </div>
     )
