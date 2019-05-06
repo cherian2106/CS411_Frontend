@@ -150,6 +150,19 @@ const monthOptions = [
   }
 ]
 
+const countryOptions = [
+  {
+    key: 'USA/CA',
+    text: 'USA/CA',
+    value: 1,
+  },
+  {
+    key: 'Other',
+    text: 'Other',
+    value: 0,
+  }
+]
+
 
 
 class StartupIdea extends Component
@@ -226,12 +239,16 @@ class StartupIdea extends Component
              onChange = {(event,newValue) => this.setState({month:newValue})}
            />
            </div>
-             <TextField
-               hintText="Enter Country"
-               floatingLabelText="Country"
-               onChange = {(event,newValue) => this.setState({country:newValue})}
-               />
-             <br/>
+           <div className = {startupidea.dropdown}>
+             <Dropdown
+             
+             placeholder='Select Country Of StartUp'
+             fluid
+             selection
+             options={countryOptions}
+             onChange = {(event,newValue) => this.setState({category:newValue})}
+           />
+           </div>
              <TextField
                hintText="Enter Money raised"
                floatingLabelText="Money Raised"

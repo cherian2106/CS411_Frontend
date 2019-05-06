@@ -6,7 +6,85 @@ import TextField from 'material-ui/TextField';
 import newstartup from './NewStartUp.module.scss';
 import styles from './robot.css';
 import { Link } from 'react-router-dom';
-import { Card, Button } from 'semantic-ui-react';
+import { Dropdown, Button } from 'semantic-ui-react';
+
+const friendOptions = [
+  {
+    key: 'Art',
+    text: 'Art',
+    value: 'Art',
+  },
+  {
+    key: 'Comics',
+    text: 'Comics',
+    value: 'Comics',
+  },
+  {
+    key: 'Crafts',
+    text: 'Crafts',
+    value: 'Crafts',
+  },
+  {
+    key: 'Dance',
+    text: 'Dance',
+    value: 'Dance',
+  },
+  {
+    key: 'Design',
+    text: 'Design',
+    value: 'Design',
+  },
+  {
+    key: 'Fashion',
+    text: 'Fashion',
+    value: 'Fashion',
+  },
+  {
+    key: 'Film & Video',
+    text: 'Film & Video',
+    value: 'Film & Video',
+  },
+  {
+    key: 'Food',
+    text: 'Food',
+    value: 'Food',
+  },
+  {
+    key: 'Games',
+    text: 'Games',
+    value: 'Games',
+  },
+  {
+    key: 'Journalism',
+    text: 'Journalism',
+    value: 'Journalism',
+  },
+  {
+    key: 'Music',
+    text: 'Music',
+    value: 'Music',
+  },
+  {
+    key: 'Photography',
+    text: 'Photography',
+    value: 'Photography',
+  },
+  {
+    key: 'Publishing',
+    text: 'Publishing',
+    value: 'Publishing',
+  },
+  {
+    key: 'Technology',
+    text: 'Technology',
+    value: 'Technology',
+  },
+  {
+    key: 'Theater',
+    text: 'Theater',
+    value: 'Theater',
+  },
+]
 
 class NewStartUp extends Component
 {
@@ -59,13 +137,15 @@ class NewStartUp extends Component
              onChange = {(event,newValue) => this.setState({name:newValue})}
              />
            <br/>
-           <TextField
-              //  className = {signup.username}
-               hintText="Enter Category"
-               floatingLabelText="Category"
-               onChange = {(event,newValue) => this.setState({category:newValue})}
-               />
-            <br/>
+           <div className = {newstartup.dropdown}>
+              <Dropdown
+                placeholder='Select Category'
+                fluid
+                selection
+                options={friendOptions}
+                onChange = {(event,newValue) => this.setState({category:newValue})}
+              />
+            </div >
              <TextField
               //  className = {signup.password}
                hintText="Enter Money Raised"

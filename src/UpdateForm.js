@@ -3,6 +3,86 @@ import Axios from 'axios';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import RaisedButton from 'material-ui/RaisedButton';
 import TextField from 'material-ui/TextField';
+import { Dropdown , Card, Button } from 'semantic-ui-react';
+import updateform from './UpdateForm.module.scss';
+
+const friendOptions = [
+  {
+    key: 'Art',
+    text: 'Art',
+    value: 'Art',
+  },
+  {
+    key: 'Comics',
+    text: 'Comics',
+    value: 'Comics',
+  },
+  {
+    key: 'Crafts',
+    text: 'Crafts',
+    value: 'Crafts',
+  },
+  {
+    key: 'Dance',
+    text: 'Dance',
+    value: 'Dance',
+  },
+  {
+    key: 'Design',
+    text: 'Design',
+    value: 'Design',
+  },
+  {
+    key: 'Fashion',
+    text: 'Fashion',
+    value: 'Fashion',
+  },
+  {
+    key: 'Film & Video',
+    text: 'Film & Video',
+    value: 'Film & Video',
+  },
+  {
+    key: 'Food',
+    text: 'Food',
+    value: 'Food',
+  },
+  {
+    key: 'Games',
+    text: 'Games',
+    value: 'Games',
+  },
+  {
+    key: 'Journalism',
+    text: 'Journalism',
+    value: 'Journalism',
+  },
+  {
+    key: 'Music',
+    text: 'Music',
+    value: 'Music',
+  },
+  {
+    key: 'Photography',
+    text: 'Photography',
+    value: 'Photography',
+  },
+  {
+    key: 'Publishing',
+    text: 'Publishing',
+    value: 'Publishing',
+  },
+  {
+    key: 'Technology',
+    text: 'Technology',
+    value: 'Technology',
+  },
+  {
+    key: 'Theater',
+    text: 'Theater',
+    value: 'Theater',
+  },
+]
 
 class UpdateForm extends Component
 {
@@ -52,14 +132,15 @@ class UpdateForm extends Component
             //  style = {{width: 100}}
              />
            <br/>
-           <TextField
-              //  className = {signup.username}
-               hintText="Enter Category"
-               floatingLabelText="Category"
-               value = {this.state.update_category}
-               onChange = {(event,newValue) => this.setState({update_category:newValue})}
-               />
-            <br/>
+           <div className={updateform.dropdown}>
+              <Dropdown
+                placeholder='Select Category'
+                fluid
+                selection
+                options={friendOptions}
+                onChange = {(event,newValue) => this.setState({category:newValue})}
+              />
+            </div >
              <TextField
               //  className = {signup.password}
                hintText="Enter Money Raised"

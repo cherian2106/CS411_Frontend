@@ -5,6 +5,7 @@ import React, { Component } from 'react';
 import signup from './SignUp.module.scss'
 import Auth from '../../config.js'
 import Axios from 'axios'
+
 class SignUp extends Component {
 
     constructor(){
