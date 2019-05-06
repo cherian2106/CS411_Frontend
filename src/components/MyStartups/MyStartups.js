@@ -42,7 +42,7 @@ class NewStartUp extends Component
             )};
         // if (this.state.result.length !== 0) {
             return(
-                <div>
+                <div className = {mystartup.cont}>
                     <Link to={process.env.PUBLIC_URL+'/search/'+this.props.match.params.uid}>
                         <Button className="ui button"> Back To Search </Button>
                     </Link>
