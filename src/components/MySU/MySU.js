@@ -35,12 +35,14 @@ class MySU extends Component
             <div className={mysu.CardContainer}>
               <img onClick = {this.handleEdit} className = {mysu.edit} src = 'https://cdn3.iconfinder.com/data/icons/google-material-design-icons/48/ic_mode_edit_48px-512.png'></img>
               <div className="ui centered card" onClick = {this.View}>
-                <Card>
+                <Card className={mysu.card}>
                   <Image src =  ''/>
                   <Card.Content>
-                      <Card.Header>{this.state.elems.Name} </Card.Header>
-                      <Card.Meta></Card.Meta>
-                      <Card.Description></Card.Description>
+                      <Card.Header>
+                        <p className = {mysu.header}>{this.state.elems.Name}</p> 
+                      </Card.Header>
+                      {/* <Card.Meta></Card.Meta>
+                      <Card.Description></Card.Description> */}
                   </Card.Content>
                   <Card.Content extra>
                       <p>

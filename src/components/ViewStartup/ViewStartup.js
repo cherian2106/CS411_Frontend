@@ -63,7 +63,7 @@ class ViewStartup extends Component
 
   render() {
     const Comments = ({results}) => {
-    return (<ul >
+    return (<ul className = {viewstartup.commentul}>
       {results.map(result => (
           <li key = {result.CommentID}>
               <Comment comment = {result} curr_user = {this.props.match.params.uid}/>
@@ -73,8 +73,11 @@ class ViewStartup extends Component
     )};
     return(
       <div className={viewstartup.container}>
-        <Link to={process.env.PUBLIC_URL+'/search/'+this.props.match.params.uid}>
+        {/* <Link to={process.env.PUBLIC_URL+'/search/'+this.props.match.params.uid}>
           <img className = {viewstartup.back} src = 'https://cdn3.iconfinder.com/data/icons/line/36/arrow_left-512.png'></img>
+        </Link> */}
+        <Link to={process.env.PUBLIC_URL+'/search/'+this.props.match.params.uid}>
+          <Button className="ui button"> Back To Search </Button>
         </Link>
         {/* <img onClick = {this.handleEdit} class = 'edit' src = 'https://cdn3.iconfinder.com/data/icons/google-material-design-icons/48/ic_mode_edit_48px-512.png'></img> */}
         <div className= {viewstartup.card}>
