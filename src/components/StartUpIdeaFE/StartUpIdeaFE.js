@@ -106,7 +106,7 @@ Create = () => {
                     onClick = {this.Create}
                 > Create New Startup
                 </Menu.Item>
-                <Link to={process.env.PUBLIC_URL+'/startupidea'} >
+                <Link to={process.env.PUBLIC_URL+'/startupidea/'+this.props.match.params.uid} >
                 <Menu.Item
                     name='editorials'
                     onClick = {this.predict_Startup}

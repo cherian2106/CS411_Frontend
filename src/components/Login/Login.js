@@ -33,8 +33,8 @@ render() {
           <div>
             <TextField
              className = {login.user}
-             hintText="Enter your Username"
-             floatingLabelText="Username"
+             hintText="Enter your Email"
+             floatingLabelText="Email"
              onChange = {(event,newValue) => this.setState({username:newValue})}
              />
              <TextField

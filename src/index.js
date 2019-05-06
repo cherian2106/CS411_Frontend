@@ -20,7 +20,7 @@ ReactDOM.render(<Router>
       <Route exact path={process.env.PUBLIC_URL+"/Search/:uid"} component={StartUpIdeaFE} />
       <Route exact path={process.env.PUBLIC_URL+"/startups/:id/:uid"} component={ViewStartup} />
       <Route exact path={process.env.PUBLIC_URL+"/mystartups/:uid"} component={MyStartups} />
-      <Route exact path={process.env.PUBLIC_URL+"/startupidea"} component={StartupIdea} />
+      <Route exact path={process.env.PUBLIC_URL+"/startupidea/:uid"} component={StartupIdea} />
     </div>
 </Router>, document.getElementById('root'));
 // If you want your app to work offline and load faster, you can change
