@@ -29,29 +29,50 @@ class Feed extends Component
   }
 
   render() {
+<<<<<<< HEAD
     // console.log(this.props.mine)
+=======
+    // console.log(this.props.mine);
+    if (this.props.mine === "yes") {
+      if (this.state.isEditing) {
+        return (
+          <UpdateForm result = {this.state.elems}/>
+        )
+      }
+      return(
+        <div className={feedcard.container}>
+          <div className="card">
+            <p> startUp Name: {this.state.elems.Name}</p>
+                  <p>
+                  
+                    Category: {this.state.elems.Category} <br></br>
+                    Launch date: {this.state.elems.Launch_date} <br></br>
+                    Location: {this.state.elems.Location} <br></br>
+                    Money raised: {this.state.elems.Money_raised} <br></br>
+                  </p>
+           
+          </div>
+        </div>
+      )
+    }
+    else {
+>>>>>>> 74e4453a49c25d21926addd378df681c72a2ad1c
       return (
-        <div className={feedcard.CardContainer}>
-            <div className="ui centered card">
-              <p> startUp Name: {this.state.elems.Name}</p>
-              <Card>
-                <Image src =  ''/>
-                <Card.Content>
-                    <Card.Header>StartUp name: {this.state.elems.Name} </Card.Header>
-                    <Card.Meta></Card.Meta>
-                    <Card.Description></Card.Description>
-                </Card.Content>
-                <Card.Content extra>
-                    <p>
-                    <Icon name='user' />
-                      Category: {this.state.elems.Category} <br></br>
-                      Launch date: {this.state.elems.Launch_date} <br></br>
-                      Location: {this.state.elems.Location} <br></br>
-                      Money raised: {this.state.elems.Money_raised} <br></br>
-                    </p>
-                </Card.Content>
-              </Card>
-            </div>
+        <div className={feedcard.container}>
+          <div className="card">
+            <div className={feedcard.title}> {this.state.elems.Name}</div>
+            <img className = {feedcard.img} src = 'https://cdn.iconscout.com/icon/free/png-256/account-avatar-profile-human-man-user-30448.png'></img>
+                 
+                  <p>
+                    Category: {this.state.elems.Category} <br></br>
+                    Launch date: {this.state.elems.Launch_date} <br></br>
+                    Location: {this.state.elems.Location} <br></br>
+                    Amount Raised: {this.state.elems.Money_raised} <br></br>
+                  </p>
+
+                  
+           
+          </div>
         </div>
       )
   }
