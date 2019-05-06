@@ -16,15 +16,11 @@ class comment extends Component
     }
     
     handleCommentDelete() {
-        // console.log("committed");
-        // var url = `https://backendvaradk2.herokuapp.com/comments/${this.props.comment.CommentID}`;
         var url = `http://localhost:4000/comments/${this.props.comment.CommentID}`;
         if(this.props.comment.UserID === this.props.curr_user) {
             Axios.delete(url)
             .then(res => {
                 window.location.reload();
-
-                // window.location.href = process.env.PUBLIC_URL+"/startups/"+this.state.id + '/' + this.props.match.params.uid;
             })
             .catch(err => {
                 throw err;
@@ -35,7 +31,6 @@ class comment extends Component
         }
     }
     render() {
-        // console.log(this.props);
         return(
             <Comment.Group>
                 <Comment>

@@ -1,9 +1,5 @@
 import React, { Component } from 'react'
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
-
-// import axios from 'axios'
-// import Sugg from './Sugg';
-// import { Link } from 'react-router-dom';
 import Axios from 'axios';
 import RaisedButton from 'material-ui/RaisedButton';
 import TextField from 'material-ui/TextField';
@@ -34,9 +30,7 @@ class NewStartUp extends Component
             Launch_date: this.state.launch_date,
             UserID: this.props.match.params.uid
         }
-        // console.log(update);
         var url = `https://backendvaradk2.herokuapp.com/startups`;
-        // console.log(url);
         Axios.post(url, update)
         .then((res) => {
           console.log(res);
@@ -49,7 +43,6 @@ class NewStartUp extends Component
     }
 
       render(){
-        // console.log(this.props.match.params.uid);
     return(
 
     <div className = {newstartup.main}>
@@ -123,7 +116,6 @@ class NewStartUp extends Component
     
     );
   }
-
 }
 
 export default NewStartUp

@@ -1,9 +1,7 @@
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
-// import AppBar from 'material-ui/AppBar';
 import RaisedButton from 'material-ui/RaisedButton';
 import TextField from 'material-ui/TextField';
 import React, { Component } from 'react';
-import firebase from 'firebase';
 import login from './Login.module.scss'
 import Auth from '../../config.js'
 

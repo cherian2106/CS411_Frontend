@@ -1,13 +1,8 @@
 import React, { Component } from 'react'
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
-
-// import axios from 'axios'
-// import Sugg from './Sugg';
-// import { Link } from 'react-router-dom';
 import Axios from 'axios';
 import RaisedButton from 'material-ui/RaisedButton';
 import TextField from 'material-ui/TextField';
-import { Link } from 'react-router-dom';
 import { Dropdown , Card, Button } from 'semantic-ui-react';
 import startupidea from './StartupIdea.module.scss'
 
@@ -96,62 +91,62 @@ const monthOptions = [
   {
     key: 'January',
     text: 'January',
-    value: '1',
+    value: 1,
   },
   {
     key: 'Feburary',
     text: 'Feburary',
-    value: '2',
+    value: 2,
   },
   {
     key: 'March',
     text: 'March',
-    value: '3',
+    value: 3,
   },
   {
     key: 'April',
     text: 'April',
-    value: '4',
+    value: 4,
   },
   {
     key: 'May',
     text: 'May',
-    value: '5',
+    value: 5,
   },
   {
     key: 'June',
     text: 'June',
-    value: '6',
+    value: 6,
   },
   {
     key: 'July',
     text: 'July',
-    value: '7',
+    value: 7,
   },
   {
     key: 'August',
     text: 'August',
-    value: '8',
+    value: 8,
   },
   {
     key: 'September',
     text: 'September',
-    value: '9',
+    value: 9,
   },
   {
     key: 'October',
     text: 'October',
-    value: '10',
+    value: 10,
   },
   {
     key: 'November',
     text: 'November',
-    value: '11',
+    value: 11,
   },
   {
     key: 'December',
     text: 'December',
-    value: '12',
+    value: 12,
   }
 ]
 
@@ -171,7 +166,6 @@ class StartupIdea extends Component
       }
 
       predictStartUp = () => {
-        // console.log(update);
         var url = `https://advanced-functionality-cs498.herokuapp.com/predict?category=`+ this.state.category.value+
         '&month='+this.state.month+'&backers='+this.state.backers+'&country='+this.state.country;
         Axios.get(url)
@@ -183,19 +177,13 @@ class StartupIdea extends Component
         })
     }
 
-      render(){
-        // console.log(this.props.match.params.uid);
+  render(){
     return(
 
     <div className = {startupidea.cont}>
         <MuiThemeProvider>
-        {/* <Link to={process.env.PUBLIC_URL+'/search/'+this.props.match.params.uid}>
-              <Button className="ui button"> Back To Search </Button> */}
-              
-          {/* </Link> */}
           <div >
             <TextField
-            //  className = {signup.user}
              hintText="Enter Startup Idea name"
              floatingLabelText="Name"
              onChange = {(event,newValue) => this.setState({name:newValue})}
@@ -211,7 +199,6 @@ class StartupIdea extends Component
               />
             </div >
              <TextField
-              //  className = {signup.password}
                hintText="Enter Backers If any"
                floatingLabelText="Number of Backers"
                onChange = {(event,newValue) => this.setState({backers:newValue})}
@@ -220,7 +207,7 @@ class StartupIdea extends Component
              <div className = {startupidea.dropdown}>
              <Dropdown
              
-             placeholder='Select Category'
+             placeholder='Select Month Of StartUp Deployment'
              fluid
              selection
              options={monthOptions}
@@ -228,7 +215,6 @@ class StartupIdea extends Component
            />
            </div>
              <TextField
-              //  className = {signup.password}
                hintText="Enter Country"
                floatingLabelText="Country"
                onChange = {(event,newValue) => this.setState({country:newValue})}

@@ -1,5 +1,4 @@
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
-// import AppBar from 'material-ui/AppBar';
 import RaisedButton from 'material-ui/RaisedButton';
 import TextField from 'material-ui/TextField';
 import React, { Component } from 'react';
@@ -21,7 +20,6 @@ class SignUp extends Component {
         }
         this.SignUpClick = this.SignUpClick.bind(this);
     }
-// Initialize Firebase
   // resetComponent = () => this.setState({ email: false, results: [], value: '' })
 
 SignUpClick = () => {

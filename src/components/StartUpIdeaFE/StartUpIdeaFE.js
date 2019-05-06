@@ -89,7 +89,6 @@ Create = () => {
       </span>
     );
     const Feed = ({results}) => {
-        // console.log(results);
       return (<ul className = {startupidea.feedul}>
         {results.map(result => (
             <li className = {startupidea.feedli} key = {result.StartupID}>
@@ -105,20 +104,12 @@ Create = () => {
                 <Menu.Item
                     name='editorials'
                     onClick = {this.Create}
-                    // color='red'
-                    // onClick = {this.Logout}
-                    // active={activeItem === 'editorials'}
-                    // onClick={this.handleItemClick}
                 > Create New Startup
                 </Menu.Item>
                 <Link to={process.env.PUBLIC_URL+'/startupidea'} >
                 <Menu.Item
                     name='editorials'
                     onClick = {this.predict_Startup}
-                    // color='red'
-                    // onClick = {this.Logout}
-                    // active={activeItem === 'editorials'}
-                    // onClick={this.handleItemClick}
                 > Predict Startup Success
                 </Menu.Item></Link>
                 <Menu.Menu position='right'>
@@ -126,16 +117,12 @@ Create = () => {
                         name='editorials'
                         color='red'
                         onClick = {this.viewMyStartups}
-                        // active={activeItem === 'editorials'}
-                        // onClick={this.handleItemClick}
                     > View my startups
                     </Menu.Item>
                     <Menu.Item
                         name='editorials'
                         color='red'
                         onClick = {this.Logout}
-                        // active={activeItem === 'editorials'}
-                        // onClick={this.handleItemClick}
                     > Logout
                     </Menu.Item>
                 </Menu.Menu>

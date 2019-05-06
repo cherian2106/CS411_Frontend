@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 import Axios from 'axios'
 import mystartup from './MyStartups.module.scss'
-import FeedCard from '../FeedCard/FeedCard.js'
 import { Link } from 'react-router-dom';
 import { Button } from 'semantic-ui-react';
 import MySU from '../MySU/MySU.js'
@@ -18,7 +17,6 @@ class NewStartUp extends Component
 
     componentWillMount() {
         var url = `https://backendvaradk2.herokuapp.com/startups?uid="${this.props.match.params.uid}"`;
-        // console.log(url);
         Axios.get(url)
         .then((res) => {
             this.setState({result: res.data});
@@ -29,9 +27,7 @@ class NewStartUp extends Component
         })
     }
     render(){
-        // console.log(this.props.match);
         const Startups = ({results}) => {
-            // console.log(results);
             return (
                 <ul className = {mystartup.feedul}>
                 {results.map(result => (
@@ -41,7 +37,6 @@ class NewStartUp extends Component
                 ))}
                 </ul>
             )};
-        // if (this.state.result.length !== 0) {
             return(
                 <div className = {mystartup.cont}>
                     <Link to={process.env.PUBLIC_URL+'/search/'+this.props.match.params.uid}>

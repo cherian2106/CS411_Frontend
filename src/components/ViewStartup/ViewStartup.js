@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-// import { Card, Icon, Image } from 'semantic-ui-react/semantic.min'
 import { Button } from 'semantic-ui-react';
 import { Link } from 'react-router-dom';
 import { Form } from 'semantic-ui-react';
@@ -7,10 +6,6 @@ import UpdateForm from '../../UpdateForm.js';
 import Axios from 'axios';
 import Comment from '../Comment/comment.js'
 import viewstartup from './ViewStartup.module.scss'
-
-
-// import 'semantic-ui-react';
-// import 'semantic-ui-css/semantic.min';
 
 class ViewStartup extends Component
 {
@@ -27,25 +22,19 @@ class ViewStartup extends Component
       update_location: "",
       update_money_raised: ""
     }
-    // this.handleDelete = this.handleDelete.bind(this);
-    // this.handleEdit = this.handleEdit.bind(this);
   }
 
 
   componentWillMount = () =>{
-    // console.log(this.props.location.state.elems);
     // this.setState({elems: this.props.location.state.elems});
     var url = `https://backendvaradk2.herokuapp.com/startups/${this.state.id}`;
     Axios.get(url)
         .then((res) => {
             this.setState({result: res.data[0]});
-            // console.log(this.state.result);
         })
         .catch((error) => {
-          // console.log(error);
         })
 
-    // var url = `https://backendvaradk2.herokuapp.com/comments/${this.state.id}`
     var url = `http://localhost:4000/comments/${this.state.id}`
     Axios.get(url)
     .then((res) => {
@@ -57,7 +46,6 @@ class ViewStartup extends Component
   }
 
   Comment_Post = () => {
-    // this.setState(newComment)
     var url = `https://backendvaradk2.herokuapp.com/comments`;
     console.log(url)
     console.log(this.state.newComment.value)
@@ -74,9 +62,7 @@ class ViewStartup extends Component
   }
 
   render() {
-    // var curr_user = this.props.match.params.uid;
     const Comments = ({results}) => {
-      // console.log(results);
     return (<ul >
       {results.map(result => (
           <li key = {result.CommentID}>

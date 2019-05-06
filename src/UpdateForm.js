@@ -1,7 +1,4 @@
 import React, { Component } from 'react'
-// import axios from 'axios'
-// import Sugg from './Sugg';
-// import { Link } from 'react-router-dom';
 import Axios from 'axios';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import RaisedButton from 'material-ui/RaisedButton';
@@ -30,7 +27,6 @@ class UpdateForm extends Component
         Launch_date: this.state.update_launch_data
       }
       var url = `https://backendvaradk2.herokuapp.com/startups/${this.props.result.StartupID}`;
-      // console.log(url);
       Axios.put(url, update)
       .then((res) => {
         console.log(res);
@@ -42,7 +38,6 @@ class UpdateForm extends Component
   }
 
     render() {
-      // console.log(this.props);
       return(
         <div>
           <MuiThemeProvider>

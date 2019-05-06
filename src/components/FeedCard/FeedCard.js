@@ -1,18 +1,5 @@
 import React, { Component } from 'react'
-import { Card } from 'semantic-ui-react';
-import {Image} from 'semantic-ui-react';
-import {Icon} from 'semantic-ui-react';
-import { Link } from 'react-router-dom';
 import feedcard from './FeedCard.module.scss'
-// import UpdateForm from '../../UpdateForm';
-import Axios from 'axios';
-import UpdateForm from '../../UpdateForm.js'
-import { RaisedButton } from 'material-ui';
-import { Button } from 'semantic-ui-react';
-
-// import 'semantic-ui-react';
-// import 'semantic-ui-css/semantic.min';
-
 
 class Feed extends Component
 {
@@ -29,7 +16,6 @@ class Feed extends Component
   }
 
   render() {
-    // console.log(this.props.mine)
       return (
         <div className={feedcard.container}>
           <div className="card">

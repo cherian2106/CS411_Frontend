@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
 import sugg from './Sugg.module.scss';
-// import ViewStartup from './ViewStartup';
 import { Link } from 'react-router-dom';
 
 class Sugg extends Component

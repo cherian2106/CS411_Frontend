@@ -4,8 +4,6 @@ import SignUp from '../SignUp/SignUp';
 import RaisedButton from 'material-ui/RaisedButton';
 import loginpage from './LoginPage.module.scss'
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
-// import { Button, FormGroup, FormControl, FormLabel } from "react-bootstrap";
-
 
 class LoginPage extends Component {
 
