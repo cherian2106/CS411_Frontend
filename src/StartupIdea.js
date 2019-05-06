@@ -167,7 +167,7 @@ class StartupIdea extends Component
 
       predictStartUp = () => {
         var url = `https://advanced-functionality-cs498.herokuapp.com/predict?category=`+ this.state.category.value+
-        '&month='+this.state.month+'&backers='+this.state.backers+'&country='+this.state.country;
+        '&month='+this.state.month.value+'&backers='+this.state.backers+'&country='+this.state.country;
         Axios.get(url)
         .then((res) => {
           console.log(res);
