@@ -9,6 +9,7 @@ import RaisedButton from 'material-ui/RaisedButton';
 import TextField from 'material-ui/TextField';
 import { Link } from 'react-router-dom';
 import { Dropdown , Card, Button } from 'semantic-ui-react';
+import startupidea from './StartupIdea.module.scss'
 
 
 const friendOptions = [
@@ -186,7 +187,7 @@ class StartupIdea extends Component
         // console.log(this.props.match.params.uid);
     return(
 
-    <div >
+    <div className = {startupidea.cont}>
         <MuiThemeProvider>
         {/* <Link to={process.env.PUBLIC_URL+'/search/'+this.props.match.params.uid}>
               <Button className="ui button"> Back To Search </Button> */}
@@ -200,6 +201,7 @@ class StartupIdea extends Component
              onChange = {(event,newValue) => this.setState({name:newValue})}
              />
            <br/>
+           <div className = {startupidea.dropdown}>
               <Dropdown
                 placeholder='Select Category'
                 fluid
@@ -207,6 +209,7 @@ class StartupIdea extends Component
                 options={friendOptions}
                 onChange = {(event,newValue) => this.setState({category:newValue})}
               />
+            </div >
              <TextField
               //  className = {signup.password}
                hintText="Enter Backers If any"
@@ -214,13 +217,16 @@ class StartupIdea extends Component
                onChange = {(event,newValue) => this.setState({backers:newValue})}
                />
              <br/>
+             <div className = {startupidea.dropdown}>
              <Dropdown
+             
              placeholder='Select Category'
              fluid
              selection
              options={monthOptions}
              onChange = {(event,newValue) => this.setState({category:newValue})}
            />
+           </div>
              <TextField
               //  className = {signup.password}
                hintText="Enter Country"
